@@ -4,6 +4,8 @@
 " Description: Yet another colorscheme for Vim, great!
 
 " Initial Setup:
+hi clear
+
 if version > 580
 	hi clear
 	if exists("syntax_on")
@@ -23,23 +25,15 @@ let s:fore = ['#dadada', 253]
 let s:fore2 = ['#9e9e9e', 247]
 let s:fore3 = ['#bcbcbc', 250]
 
+" TODO, yellow is a bit hard to see against fore?
 let s:neutral = {}
-let s:neutral.red = ['#bf3f3f', 131]
-let s:neutral.green = ['#3fbf3f', 71]
-let s:neutral.yellow = ['#bfbf3f', 143]
-let s:neutral.blue = ['#3f7fbf', 67]
-let s:neutral.purple = ['#7f3fbf', 97]
-let s:neutral.aqua = ['#3fbfbf', 73]
-let s:neutral.orange = ['#bf7f3f', 137]
-
-let s:bright = {}
-let s:bright.red = ['#df5f5f', 167]
-let s:bright.green = ['#5fdf5f', 77]
-let s:bright.yellow = ['#dfdf5f', 185]
-let s:bright.blue = ['#5f9fdf', 74]
-let s:bright.purple = ['#9f5fdf', 134]
-let s:bright.aqua = ['#5fdfdf', 80]
-let s:bright.orange = ['#df9f5f', 179]
+let s:neutral.red = ['#df5f5f', 167]
+let s:neutral.green = ['#5fdf5f', 77]
+let s:neutral.yellow = ['#dfdf5f', 185]
+let s:neutral.blue = ['#5f87df', 68]
+let s:neutral.purple = ['#af5fdf', 134]
+let s:neutral.aqua = ['#5fdfdf', 80]
+let s:neutral.orange = ['#df875f', 173]
 
 " Constants:
 let s:none = ['NONE', 'NONE']
@@ -96,7 +90,7 @@ call s:HF('CursorLineNr', s:neutral.orange)
 call s:HF('CursorColumn', s:none, s:back2)
 call s:HF('ColorColumn', s:none, s:back2) " TODO, This is that vertical line at 100, make it brighter?
 call s:HF('LineNr', s:back4, s:back2) " TODO, make line numbers brighter?
-call s:HF('NonText', s:unknown2)
+call s:HF('NonText', s:back3) "TODO, seems to control the ~ outside of the text area
 call s:HF('SpecialKey', s:unknown)
 
 call s:HF('Boolean', s:neutral.purple)
@@ -105,11 +99,11 @@ call s:HF('Number', s:neutral.purple)
 call s:HF('String', s:neutral.yellow)
 call s:HF('Conditional', s:neutral.red, s:none, s:bold)
 call s:HF('Constant', s:neutral.purple, s:none, s:bold)
-call s:HF('Cursor', s:unknown, s:fore)
-call s:HF('iCursor', s:unknown, s:fore)
+call s:HF('Cursor', s:unknown, s:unknown3)
+call s:HF('iCursor', s:unknown, s:unknown3)
 call s:HF('Debug', s:unknown, s:none, s:bold)
 call s:HF('Define', s:unknown2)
-call s:HF('Delimiter', s:unknown2) " TODO, seems to control parentheses and curly brackets, but not square brackets hmm
+call s:HF('Delimiter', s:fore2) " TODO, seems to control parentheses and curly brackets, but not square brackets hmm
 
 " TODO, Diff seems to be good, check again when folding is highlighted
 " TODO, problem when you hover over to the changed line, the DiffText disappears because the text is the same color as CursorLine, gg
