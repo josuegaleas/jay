@@ -14,9 +14,14 @@ endif
 let g:colors_name="jay"
 
 " Palette:
-let s:back = ['#1f1f1f', 234]
-let s:back2 = ['#000000', 235]
-let s:fore = ['#dfdfdf', 253]
+let s:back = ['#1c1c1c', 234]
+let s:back2 = ['#262626', 235]
+let s:back3 = ['#444444', 238]
+let s:back4 = ['#606060', 241]
+
+let s:fore = ['#dadada', 253]
+let s:fore2 = ['#9e9e9e', 247]
+let s:fore3 = ['#bcbcbc', 250]
 
 let s:neutral = {}
 let s:neutral.red = ['#bf3f3f', 131]
@@ -39,7 +44,7 @@ let s:bright.orange = ['#df9f5f', 179]
 " Constants:
 let s:none = ['NONE', 'NONE']
 let s:bold = 'bold,'
-let s:italic = 'italic'
+let s:italic = 'italic,'
 let s:underline = 'underline,'
 
 " Highlighting Function:
@@ -78,48 +83,42 @@ function! s:HF(group, fg, ...)
 endfunction
 
 " General:
-" TODO, temporary colors?
-let s:gray1 = ['#585858', 240]
-let s:gray2 = ['#949494', 246]
+" TODO, temporary debugging colors
 let s:unknown = ['#ff00ff', 13]
-let s:unknown2 = ['#ffff00', 11]
+let s:unknown2 = ['#ff0000', 9]
+let s:unknown3 = ['#00ff00', 10]
+let s:unknown4 = ['#00ffff', 14]
 
 call s:HF('Normal', s:fore, s:back)
-call s:HF('Comment', s:gray1)
+call s:HF('Comment', s:back4)
 call s:HF('CursorLine', s:none, s:back2)
 call s:HF('CursorLineNr', s:neutral.orange)
 call s:HF('CursorColumn', s:none, s:back2)
 call s:HF('ColorColumn', s:none, s:back2) " TODO, This is that vertical line at 100, make it brighter?
-call s:HF('LineNr', s:gray1, s:back2)
-call s:HF('NonText', s:unknown)
+call s:HF('LineNr', s:back4, s:back2) " TODO, make line numbers brighter?
+call s:HF('NonText', s:unknown2)
 call s:HF('SpecialKey', s:unknown)
 
-" hi Boolean         guifg=#AE81FF
 call s:HF('Boolean', s:neutral.purple)
-" hi Character       guifg=#E6DB74
 call s:HF('Character', s:neutral.yellow)
-" hi Number          guifg=#AE81FF
 call s:HF('Number', s:neutral.purple)
-" hi String          guifg=#E6DB74
 call s:HF('String', s:neutral.yellow)
-" hi Conditional     guifg=#F92672               gui=bold
 call s:HF('Conditional', s:neutral.red, s:none, s:bold)
-" hi Constant        guifg=#AE81FF               gui=bold
 call s:HF('Constant', s:neutral.purple, s:none, s:bold)
-" hi Cursor          guifg=#000000 guibg=#F8F8F0
 call s:HF('Cursor', s:unknown, s:fore)
-" hi iCursor         guifg=#000000 guibg=#F8F8F0
 call s:HF('iCursor', s:unknown, s:fore)
-" hi Debug           guifg=#BCA3A3               gui=bold
 call s:HF('Debug', s:unknown, s:none, s:bold)
-" hi Define          guifg=#66D9EF
-call s:HF('Define', s:neutral.aqua)
-call s:HF('Delimiter', s:unknown2)
+call s:HF('Define', s:unknown2)
+call s:HF('Delimiter', s:unknown2) " TODO, seems to control parentheses, but not brackets hmm
 
-" hi DiffAdd                       guibg=#13354A
-" hi DiffChange      guifg=#89807D guibg=#4C4745
-" hi DiffDelete      guifg=#960050 guibg=#1E0010
-" hi DiffText                      guibg=#4C4745 gui=italic,bold
+" TODO, Diff seems to be good, check again when folding is highlighted
+" TODO, problem when you hover over to the changed line, the DiffText
+" disappears because the text is the same color as CursorLine, gg
+" TODO, similar issue with CursorColumn with highlighted searches, wp
+call s:HF('DiffAdd', s:neutral.green, s:back2)
+call s:HF('DiffChange', s:neutral.yellow, s:back2)
+call s:HF('DiffDelete', s:neutral.red, s:back2)
+call s:HF('DiffText', s:back2, s:neutral.yellow, s:bold)
 
 " hi Directory       guifg=#A6E22E               gui=bold
 " hi Error           guifg=#E6DB74 guibg=#1E0010
