@@ -1,5 +1,5 @@
-" Author: jdevalerie <jdevalerie@gmail.com>
-" Source: https://github.com/jdevalerie/jay
+" Author: Josue <jdevalerie@gmail.com>
+" Source: https://github.com/josuegaleas/jay
 " Last Edit: June 18, 2016
 " Description: Yet another colorscheme for Vim, great!
 
@@ -109,11 +109,10 @@ call s:HF('Cursor', s:unknown, s:fore)
 call s:HF('iCursor', s:unknown, s:fore)
 call s:HF('Debug', s:unknown, s:none, s:bold)
 call s:HF('Define', s:unknown2)
-call s:HF('Delimiter', s:unknown2) " TODO, seems to control parentheses, but not brackets hmm
+call s:HF('Delimiter', s:unknown2) " TODO, seems to control parentheses and curly brackets, but not square brackets hmm
 
 " TODO, Diff seems to be good, check again when folding is highlighted
-" TODO, problem when you hover over to the changed line, the DiffText
-" disappears because the text is the same color as CursorLine, gg
+" TODO, problem when you hover over to the changed line, the DiffText disappears because the text is the same color as CursorLine, gg
 " TODO, similar issue with CursorColumn with highlighted searches, wp
 call s:HF('DiffAdd', s:neutral.green, s:back2)
 call s:HF('DiffChange', s:neutral.yellow, s:back2)
