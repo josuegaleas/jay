@@ -16,30 +16,31 @@ endif
 let g:colors_name="jay"
 
 " Palette:
+let s:back0 = ['#121212', 233]
 let s:back = ['#1c1c1c', 234]
 let s:back2 = ['#262626', 235]
 let s:back3 = ['#444444', 238]
 let s:back4 = ['#606060', 241]
 
+let s:fore0 = ['#e4e4e4', 254]
 let s:fore = ['#dadada', 253]
-let s:fore2 = ['#9e9e9e', 247]
-let s:fore3 = ['#bcbcbc', 250]
+let s:fore2 = ['#bcbcbc', 250]
+let s:fore3 = ['#9e9e9e', 247]
 
 " TODO, yellow is a bit hard to see against fore?
-let s:neutral = {}
-let s:neutral.red = ['#df5f5f', 167]
-let s:neutral.green = ['#5fdf5f', 77]
-let s:neutral.yellow = ['#dfdf5f', 185]
-let s:neutral.blue = ['#5f87df', 68]
-let s:neutral.purple = ['#af5fdf', 134]
-let s:neutral.aqua = ['#5fdfdf', 80]
-let s:neutral.orange = ['#df875f', 173]
+let s:red = ['#df5f5f', 167]
+let s:green = ['#5fdf5f', 77]
+let s:yellow = ['#dfdf5f', 185]
+let s:blue = ['#5f87df', 68]
+let s:purple = ['#af5fdf', 134]
+let s:aqua = ['#5fdfdf', 80]
+let s:orange = ['#df875f', 173]
 
 " Constants:
 let s:none = ['NONE', 'NONE']
 let s:bold = 'bold,'
-let s:italic = 'italic,'
 let s:underline = 'underline,'
+let s:bold_underline = 'bold,underline,'
 
 " Highlighting Function:
 " TODO, Stolen from gruvbox's highlighting function
@@ -79,51 +80,51 @@ endfunction
 " General:
 " TODO, temporary debugging colors
 let s:unknown = ['#ff00ff', 13]
-let s:unknown2 = ['#ff0000', 9]
+let s:unknown2 = ['#ffff00', 11]
 let s:unknown3 = ['#00ff00', 10]
 let s:unknown4 = ['#00ffff', 14]
 
 call s:HF('Normal', s:fore, s:back)
 call s:HF('Comment', s:back4)
 call s:HF('CursorLine', s:none, s:back2)
-call s:HF('CursorLineNr', s:neutral.orange)
+call s:HF('CursorLineNr', s:orange)
 call s:HF('CursorColumn', s:none, s:back2)
-call s:HF('ColorColumn', s:none, s:back2) " TODO, This is that vertical line at 100, make it brighter?
-call s:HF('LineNr', s:back4, s:back2) " TODO, make line numbers brighter?
-call s:HF('NonText', s:back3) "TODO, seems to control the ~ outside of the text area
+call s:HF('ColorColumn', s:none, s:back2)
+call s:HF('LineNr', s:back4, s:back2)
+call s:HF('NonText', s:back4) "TODO, seems to just control the ~ outside of the text area
 call s:HF('SpecialKey', s:unknown)
 
-call s:HF('Boolean', s:neutral.purple)
-call s:HF('Character', s:neutral.yellow)
-call s:HF('Number', s:neutral.purple)
-call s:HF('String', s:neutral.yellow)
-call s:HF('Conditional', s:neutral.red, s:none, s:bold)
-call s:HF('Constant', s:neutral.purple, s:none, s:bold)
-call s:HF('Cursor', s:unknown, s:unknown3)
-call s:HF('iCursor', s:unknown, s:unknown3)
-call s:HF('Debug', s:unknown, s:none, s:bold)
+call s:HF('Boolean', s:purple)
+call s:HF('Character', s:yellow)
+call s:HF('Number', s:purple)
+call s:HF('String', s:yellow)
+call s:HF('Conditional', s:red, s:none, s:bold)
+call s:HF('Constant', s:purple, s:none, s:bold)
+call s:HF('Cursor', s:back0, s:unknown) "TODO, GUI???
+call s:HF('iCursor', s:back0, s:unknown)
+call s:HF('Debug', s:unknown2, s:none, s:bold)
 call s:HF('Define', s:unknown2)
-call s:HF('Delimiter', s:fore2) " TODO, seems to control parentheses and curly brackets, but not square brackets hmm
+call s:HF('Delimiter', s:fore3) " TODO, seems to control parentheses and curly brackets, but not square brackets hmm
 
 " TODO, Diff seems to be good, check again when folding is highlighted
 " TODO, problem when you hover over to the changed line, the DiffText disappears because the text is the same color as CursorLine, gg
 " TODO, similar issue with CursorColumn with highlighted searches, wp
-call s:HF('DiffAdd', s:neutral.green, s:back2)
-call s:HF('DiffChange', s:neutral.yellow, s:back2)
-call s:HF('DiffDelete', s:neutral.red, s:back2)
-call s:HF('DiffText', s:back2, s:neutral.yellow, s:bold)
+call s:HF('DiffAdd', s:green, s:back2)
+call s:HF('DiffChange', s:yellow, s:back2)
+call s:HF('DiffDelete', s:red, s:back2)
+call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
 
-" hi Directory       guifg=#A6E22E               gui=bold
-" hi Error           guifg=#E6DB74 guibg=#1E0010
-" hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
-" hi Exception       guifg=#A6E22E               gui=bold
-" hi Float           guifg=#AE81FF
-" hi FoldColumn      guifg=#465457 guibg=#000000
-" hi Folded          guifg=#465457 guibg=#000000
-" hi Function        guifg=#A6E22E
-" hi Identifier      guifg=#FD971F
-" hi Ignore          guifg=#808080 guibg=bg
-" hi IncSearch       guifg=#C4BE89 guibg=#000000
+call s:HF('Directory', s:green, s:none, s:bold) " TODO, controls directories, just as I thought, also controls filename of error location
+call s:HF('Error', s:yellow, s:back0)
+call s:HF('ErrorMsg', s:red, s:back0, s:bold)
+call s:HF('Exception', s:unknown2, s:none, s:bold)
+call s:HF('Float', s:purple)
+call s:HF('FoldColumn', s:back4, s:back0)
+call s:HF('Folded', s:back4, s:back0)
+call s:HF('Function', s:unknown3)
+call s:HF('Identifier', s:orange)
+call s:HF('Ignore', s:unknown3, s:back0)
+call s:HF('IncSearch', s:unknown3, s:back4)
 
 " hi Keyword         guifg=#F92672               gui=bold
 " hi Label           guifg=#E6DB74               gui=none
@@ -143,6 +144,7 @@ call s:HF('DiffText', s:back2, s:neutral.yellow, s:bold)
 
 " hi PreCondit       guifg=#A6E22E               gui=bold
 " hi PreProc         guifg=#A6E22E
+call s:HF('PreProc', s:green)
 " hi Question        guifg=#66D9EF
 " hi Repeat          guifg=#F92672               gui=bold
 " hi Search          guifg=#000000 guibg=#FFE792
@@ -158,9 +160,13 @@ call s:HF('DiffText', s:back2, s:neutral.yellow, s:bold)
     " hi SpellRare   guisp=#FFFFFF gui=undercurl
 " endif
 " hi Statement       guifg=#F92672               gui=bold
+call s:HF('Statement', s:red, s:none, s:bold)
 " hi StatusLine      guifg=#455354 guibg=fg
+call s:HF('Statusline', s:fore3, s:back2)
 " hi StatusLineNC    guifg=#808080 guibg=#080808
+call s:HF('StatuslineNC', s:fore, s:back)
 " hi StorageClass    guifg=#FD971F               gui=italic
+call s:HF('StorageClass', s:orange, s:none, s:bold)
 " hi Structure       guifg=#66D9EF
 " hi Tag             guifg=#F92672               gui=italic
 " hi Title           guifg=#ef5939
@@ -168,6 +174,7 @@ call s:HF('DiffText', s:back2, s:neutral.yellow, s:bold)
 
 " hi Typedef         guifg=#66D9EF
 " hi Type            guifg=#66D9EF               gui=none
+call s:HF('Type', s:aqua)
 " hi Underlined      guifg=#808080               gui=underline
 
 " hi VertSplit       guifg=#808080 guibg=#080808 gui=bold
