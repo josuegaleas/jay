@@ -1,11 +1,14 @@
 # jay
 A theme for Vim.
 
+## Palette
+Coming soon.
+
 ## Inspiration
 - [Molokai](https://github.com/tomasr/molokai)
-- [gruvbox](https://github.com/morhetz/gruvbox)
 
 ## References
+- [gruvbox](https://github.com/morhetz/gruvbox)
 - [Solarized](https://github.com/altercation/vim-colors-solarized)
 - [Vimcasts, Episode 25](http://vimcasts.org/episodes/creating-colorschemes-for-vim/)
 

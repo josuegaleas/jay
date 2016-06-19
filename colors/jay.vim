@@ -117,7 +117,7 @@ call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
 call s:HF('Directory', s:green, s:none, s:bold) " TODO, controls directories, just as I thought, also controls filename of error location
 call s:HF('Error', s:yellow, s:back0)
 call s:HF('ErrorMsg', s:red, s:back0, s:bold)
-call s:HF('Exception', s:unknown2, s:none, s:bold)
+call s:HF('Exception', s:green, s:none, s:bold)
 call s:HF('Float', s:purple)
 call s:HF('FoldColumn', s:back4, s:back0)
 call s:HF('Folded', s:back4, s:back0)
