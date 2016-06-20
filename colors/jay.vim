@@ -33,7 +33,7 @@ let s:yellow = ['#dfdf5f', 185]
 let s:blue = ['#5f87df', 68]
 let s:purple = ['#af5fdf', 134]
 let s:aqua = ['#5fdfdf', 80]
-let s:orange = ['#df875f', 173]
+let s:orange = ['#dfaf5f', 179]
 
 " TODO, for debugging
 let s:unknown = ['#0000ff', 12]
