@@ -1,6 +1,6 @@
 " Author: Josue <jdevalerie@gmail.com>
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: June 18, 2016
+" Last Edit: June 19, 2016
 " Description: Yet another colorscheme for Vim, great!
 
 " Initial Setup:
@@ -38,12 +38,13 @@ let s:orange = ['#df875f', 173]
 
 " Constants:
 let s:none = ['NONE', 'NONE']
+let s:plain = 'none,'
 let s:bold = 'bold,'
 let s:underline = 'underline,'
 let s:bold_underline = 'bold,underline,'
 
 " Highlighting Function:
-" TODO, Stolen from gruvbox's highlighting function
+" TODO, heavily based on gruvbox's highlighting function
 function! s:HF(group, fg, ...)
 	" Foreground
 	let fg = a:fg
@@ -66,13 +67,7 @@ function! s:HF(group, fg, ...)
 	let histring = ['hi', a:group,
 				\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
 				\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
-				\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2]
-				\ ]
-
-	" Special TODO, why special?
-	if a:0 >= 3
-		call add(histring, 'guisp=' . a:3[0])
-	endif
+				\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2]]
 
 	execute join(histring, ' ')
 endfunction
@@ -85,14 +80,8 @@ let s:unknown3 = ['#00ff00', 10]
 let s:unknown4 = ['#00ffff', 14]
 
 call s:HF('Normal', s:fore, s:back)
-call s:HF('Comment', s:back4)
-call s:HF('CursorLine', s:none, s:back2)
-call s:HF('CursorLineNr', s:orange)
-call s:HF('CursorColumn', s:none, s:back2)
-call s:HF('ColorColumn', s:none, s:back2)
-call s:HF('LineNr', s:back4, s:back2)
-call s:HF('NonText', s:back4) "TODO, seems to just control the ~ outside of the text area
-call s:HF('SpecialKey', s:unknown)
+call s:HF('CursorLine', s:none, s:back2, s:plain) "TODO, the highlight messes with highlighted searches and TODO
+call s:HF('CursorLineNr', s:orange, s:none, s:plain)
 
 call s:HF('Boolean', s:purple)
 call s:HF('Character', s:yellow)
@@ -100,90 +89,88 @@ call s:HF('Number', s:purple)
 call s:HF('String', s:yellow)
 call s:HF('Conditional', s:red, s:none, s:bold)
 call s:HF('Constant', s:purple, s:none, s:bold)
-call s:HF('Cursor', s:back0, s:unknown) "TODO, GUI???
-call s:HF('iCursor', s:back0, s:unknown)
+call s:HF('Cursor', s:back0, s:unknown) "TODO, is this only in GUI?
 call s:HF('Debug', s:unknown2, s:none, s:bold)
-call s:HF('Define', s:unknown2)
-call s:HF('Delimiter', s:fore3) " TODO, seems to control parentheses and curly brackets, but not square brackets hmm
+call s:HF('Define', s:aqua)
+call s:HF('Delimiter', s:back4)
 
-" TODO, Diff seems to be good, check again when folding is highlighted
-" TODO, problem when you hover over to the changed line, the DiffText disappears because the text is the same color as CursorLine, gg
-" TODO, similar issue with CursorColumn with highlighted searches, wp
 call s:HF('DiffAdd', s:green, s:back2)
 call s:HF('DiffChange', s:yellow, s:back2)
 call s:HF('DiffDelete', s:red, s:back2)
 call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
 
-call s:HF('Directory', s:green, s:none, s:bold) " TODO, controls directories, just as I thought, also controls filename of error location
-call s:HF('Error', s:yellow, s:back0)
+call s:HF('Directory', s:green, s:none, s:bold)
+call s:HF('Error', s:yellow, s:back0) "TODO, not sure what this does
 call s:HF('ErrorMsg', s:red, s:back0, s:bold)
 call s:HF('Exception', s:green, s:none, s:bold)
 call s:HF('Float', s:purple)
-call s:HF('FoldColumn', s:back4, s:back0)
+call s:HF('FoldColumn', s:blue, s:back0)
 call s:HF('Folded', s:back4, s:back0)
-call s:HF('Function', s:unknown3)
-call s:HF('Identifier', s:orange)
+call s:HF('Function', s:green)
+call s:HF('Identifier', s:orange, s:none, s:plain)
 call s:HF('Ignore', s:unknown3, s:back0)
-call s:HF('IncSearch', s:unknown3, s:back4)
+call s:HF('IncSearch', s:back, s:green) "TODO, maybe change green to something else
 
-" hi Keyword         guifg=#F92672               gui=bold
-" hi Label           guifg=#E6DB74               gui=none
-" hi Macro           guifg=#C4BE89               gui=italic
-" hi SpecialKey      guifg=#66D9EF               gui=italic
+call s:HF('Keyword', s:unknown4, s:none, s:bold)
+call s:HF('Label', s:yellow, s:none, s:plain)
+call s:HF('Macro', s:blue)
 
-" hi MatchParen      guifg=#000000 guibg=#FD971F gui=bold
-" hi ModeMsg         guifg=#E6DB74
-" hi MoreMsg         guifg=#E6DB74
-" hi Operator        guifg=#F92672
+call s:HF('MatchParen', s:back0, s:orange, s:bold)
+call s:HF('ModeMsg', s:fore)
+call s:HF('MoreMsg', s:unknown4)
+call s:HF('Operator', s:red)
 
-" " complete menu
-" hi Pmenu           guifg=#66D9EF guibg=#000000
-" hi PmenuSel                      guibg=#808080
-" hi PmenuSbar                     guibg=#080808
-" hi PmenuThumb      guifg=#66D9EF
+call s:HF('Pmenu', s:aqua, s:back0)
+call s:HF('PmenuSel', s:fore, s:back2)
+call s:HF('PmenuSbar', s:none, s:back0)
+call s:HF('PmenuThumb', s:unknown4)
 
-" hi PreCondit       guifg=#A6E22E               gui=bold
-" hi PreProc         guifg=#A6E22E
+call s:HF('PreCondit', s:green, s:none, s:bold)
 call s:HF('PreProc', s:green)
-" hi Question        guifg=#66D9EF
-" hi Repeat          guifg=#F92672               gui=bold
-" hi Search          guifg=#000000 guibg=#FFE792
-" " marks
-" hi SignColumn      guifg=#A6E22E guibg=#232526
-" hi SpecialChar     guifg=#F92672               gui=bold
-" hi SpecialComment  guifg=#7E8E91               gui=bold
-" hi Special         guifg=#66D9EF guibg=bg      gui=italic
-" if has("spell")
-    " hi SpellBad    guisp=#FF0000 gui=undercurl
-    " hi SpellCap    guisp=#7070F0 gui=undercurl
-    " hi SpellLocal  guisp=#70F0F0 gui=undercurl
-    " hi SpellRare   guisp=#FFFFFF gui=undercurl
-" endif
-" hi Statement       guifg=#F92672               gui=bold
+call s:HF('Question', s:aqua)
+call s:HF('Repeat', s:red, s:none, s:bold)
+call s:HF('Search', s:back, s:yellow, s:plain) "TODO, maybe a diff color for searches
+
+call s:HF('SignColumn', s:unknown4, s:back)
+call s:HF('SpecialChar', s:red, s:none, s:bold)
+call s:HF('SpecialComment', s:unknown4, s:none, s:bold)
+call s:HF('Special', s:aqua)
+
+if has("spell")
+	" s:HF('SpellBad', s:red, s:none, s:underline)
+	" s:HF('SpellCap', s:blue, s:none, s:underline)
+	" s:HF('SpellLocal', s:aqua, s:none, s:underline)
+	" s:HF('SpellRare', s:unknown4, s:none, s:underline)
+endif
+
 call s:HF('Statement', s:red, s:none, s:bold)
-" hi StatusLine      guifg=#455354 guibg=fg
 call s:HF('Statusline', s:fore3, s:back2)
-" hi StatusLineNC    guifg=#808080 guibg=#080808
 call s:HF('StatuslineNC', s:fore, s:back)
-" hi StorageClass    guifg=#FD971F               gui=italic
-call s:HF('StorageClass', s:orange, s:none, s:bold)
-" hi Structure       guifg=#66D9EF
-" hi Tag             guifg=#F92672               gui=italic
-" hi Title           guifg=#ef5939
-" hi Todo            guifg=#FFFFFF guibg=bg      gui=bold
+call s:HF('StorageClass', s:orange)
+call s:HF('Structure', s:aqua)
+call s:HF('Tag', s:red)
+call s:HF('Title', s:red)
+call s:HF('Todo', s:fore, s:back, s:bold)
 
-" hi Typedef         guifg=#66D9EF
-" hi Type            guifg=#66D9EF               gui=none
-call s:HF('Type', s:aqua)
-" hi Underlined      guifg=#808080               gui=underline
+call s:HF('Typedef', s:aqua)
+call s:HF('Type', s:aqua, s:none, s:plain)
+call s:HF('Underlined', s:back4, s:none, s:underline)
 
-" hi VertSplit       guifg=#808080 guibg=#080808 gui=bold
-" hi VisualNOS                     guibg=#403D3D
-" hi Visual                        guibg=#403D3D
-" hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=bold
-" hi WildMenu        guifg=#66D9EF guibg=#000000
+call s:HF('VertSplit', s:back3, s:back0, s:bold)
+call s:HF('VisualNOS', s:none, s:unknown3)
+call s:HF('Visual', s:none, s:unknown4)
+call s:HF('WarningMsg', s:orange, s:back, s:bold)
+call s:HF('WildMenu', s:aqua, s:back0)
 
-" hi TabLineFill     guifg=#1B1D1E guibg=#1B1D1E
-" hi TabLine         guibg=#1B1D1E guifg=#808080 gui=none
+call s:HF('TabLine', s:fore2, s:back3)
+call s:HF('TabLineFill', s:none, s:back2)
+call s:HF('TabLineSel', s:back2, s:back4)
+
+call s:HF('Comment', s:back4)
+call s:HF('CursorColumn', s:none, s:back2) "TODO, has issues with highlighted text
+call s:HF('ColorColumn', s:none, s:back2) "TODO, possibly the same issue as CursorColumn
+call s:HF('LineNr', s:back4, s:back2)
+call s:HF('NonText', s:back3)
+call s:HF('SpecialKey', s:back3)
 
 set background=dark
