@@ -1,11 +1,9 @@
 " Author: Josue <jdevalerie@gmail.com>
 " Source: https://github.com/josuegaleas/jay
 " Last Edit: June 20, 2016
-" Description: Yet another colorscheme for Vim, great!
+" Description: Yet another colorscheme for Vim.
 
 " Initial Setup:
-hi clear
-
 if version > 580
 	hi clear
 	if exists("syntax_on")
@@ -26,7 +24,6 @@ let s:fore = ['#dadada', 253]
 let s:fore2 = ['#bcbcbc', 250]
 let s:fore3 = ['#9e9e9e', 247]
 
-" TODO, yellow is a bit hard to see against fore?
 let s:red = ['#df5f5f', 167]
 let s:green = ['#5fdf5f', 77]
 let s:yellow = ['#dfdf5f', 185]
@@ -68,10 +65,13 @@ function! s:HF(group, fg, ...)
 	let histring = ['hi', a:group,
 				\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
 				\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
-				\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2], 'term=none']
+				\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2], 'term=' . emstr[:-2]]
 
 	execute join(histring, ' ')
 endfunction
+
+" Common Highlight Groups:
+call s:HF('jayRed', s:red)
 
 " General:
 call s:HF('Normal', s:fore, s:back)
@@ -82,7 +82,8 @@ call s:HF('Boolean', s:purple)
 call s:HF('Character', s:yellow)
 call s:HF('Number', s:purple)
 call s:HF('String', s:yellow)
-call s:HF('Conditional', s:red)
+" call s:HF('Conditional', s:red)
+hi link Conditional jayRed
 call s:HF('Constant', s:purple)
 call s:HF('Cursor', s:back, s:fore) "TODO, is this only in GUI?
 call s:HF('lCursor', s:back, s:fore) "TODO, is this only in GUI?
@@ -98,7 +99,7 @@ call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
 call s:HF('Directory', s:green, s:none, s:bold)
 call s:HF('Error', s:red, s:back0, s:bold)
 call s:HF('ErrorMsg', s:red, s:back) " Command Error
-call s:HF('Exception', s:green, s:none, s:bold)
+call s:HF('Exception', s:green)
 call s:HF('Float', s:purple)
 call s:HF('FoldColumn', s:blue, s:back0)
 call s:HF('Folded', s:back4, s:back0)
@@ -107,9 +108,9 @@ call s:HF('Identifier', s:orange)
 call s:HF('Ignore', s:unknown, s:back0)
 call s:HF('IncSearch', s:none, s:back3) "TODO, background is maybe too dark, but then it won't match with visual
 
-call s:HF('Keyword', s:unknown, s:none, s:bold)
+call s:HF('Keyword', s:red)
 call s:HF('Label', s:yellow)
-call s:HF('Macro', s:blue)
+call s:HF('Macro', s:yellow)
 
 call s:HF('MatchParen', s:back0, s:orange, s:bold)
 call s:HF('ModeMsg', s:fore)
@@ -121,14 +122,14 @@ call s:HF('PmenuSel', s:fore, s:back2)
 call s:HF('PmenuSbar', s:none, s:back0)
 call s:HF('PmenuThumb', s:unknown)
 
-call s:HF('PreCondit', s:green, s:none, s:bold)
+call s:HF('PreCondit', s:green)
 call s:HF('PreProc', s:green)
 call s:HF('Question', s:green) "Command Question
 call s:HF('Repeat', s:red)
 call s:HF('Search', s:back, s:yellow) "TODO, maybe a diff color for searches
 
 call s:HF('SignColumn', s:unknown, s:back)
-call s:HF('SpecialChar', s:red, s:none, s:bold)
+call s:HF('SpecialChar', s:red)
 call s:HF('SpecialComment', s:unknown, s:none, s:bold)
 call s:HF('Special', s:aqua)
 
@@ -143,7 +144,7 @@ call s:HF('Statement', s:red)
 call s:HF('Statusline', s:fore3, s:back2)
 call s:HF('StatuslineNC', s:fore, s:back)
 call s:HF('StorageClass', s:orange)
-call s:HF('Structure', s:aqua)
+call s:HF('Structure', s:orange)
 call s:HF('Tag', s:red)
 call s:HF('Title', s:red)
 call s:HF('Todo', s:fore, s:back0, s:bold)
