@@ -1,6 +1,6 @@
 " Author: Josue <jdevalerie@gmail.com>
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: June 20, 2016
+" Last Edit: June 25, 2016
 " Description: Yet another colorscheme for Vim.
 
 " Initial Setup:
@@ -14,16 +14,17 @@ endif
 let g:colors_name="jay"
 
 " Palette:
+" Background Colors
 let s:back0 = ['#121212', 233]
 let s:back = ['#1c1c1c', 234]
 let s:back2 = ['#262626', 235]
 let s:back3 = ['#444444', 238]
 let s:back4 = ['#606060', 241]
-
+" Foreground Colors
 let s:fore = ['#dadada', 253]
 let s:fore2 = ['#bcbcbc', 250]
 let s:fore3 = ['#9e9e9e', 247]
-
+" Regular Colors
 let s:red = ['#df5f5f', 167]
 let s:green = ['#5fdf5f', 77]
 let s:yellow = ['#dfdf5f', 185]
@@ -31,12 +32,30 @@ let s:blue = ['#5f87df', 68]
 let s:purple = ['#af5fdf', 134]
 let s:aqua = ['#5fdfdf', 80]
 let s:orange = ['#dfaf5f', 179]
-
-" TODO, for debugging
+" TODO, Debugging Colors
 let s:unknown = ['#0000ff', 12]
 let s:unknown2 = ['#ffff00', 11]
 
-" Constants:
+" 16 color support
+if &t_Co == 16
+	let s:back0[1] = 0
+	let s:back[1] = 0
+	let s:back2[1] = 0
+	let s:back3[1] = 8
+	let s:back4[1] = 8
+	let s:fore[1] = 15
+	let s:fore2[1] = 7
+	let s:fore3[1] = 7
+	let s:red[1] = 1
+	let s:green[1] = 2
+	let s:yellow[1] = 3
+	let s:blue[1] =  4
+	let s:purple[1] = 5
+	let s:aqua[1] = 6
+	let s:orange[1] = 7
+endif
+
+" Emphasis:
 let s:none = ['NONE', 'NONE']
 let s:bold = 'bold,'
 let s:underline = 'underline,'
@@ -160,7 +179,7 @@ call s:HF('WildMenu', s:aqua, s:back0)
 
 call s:HF('TabLine', s:fore2, s:back3)
 call s:HF('TabLineFill', s:none, s:back2)
-call s:HF('TabLineSel', s:back2, s:back4)
+call s:HF('TabLineSel', s:back2, s:back4, s:bold)
 
 call s:HF('Comment', s:back4)
 call s:HF('CursorColumn', s:none, s:back2)
