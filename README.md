@@ -19,5 +19,6 @@ Coming soon.
 
 ## Commands Used
 - `:help highlight-groups`
-- `:help group-name` 
+- `:help group-name`
 - `:highlight`
+- `:source $VIMRUNTIME/syntax/hitest.vim`
