@@ -34,6 +34,7 @@ let s:orange = ['#dfaf5f', 179]
 
 " TODO, for debugging
 let s:unknown = ['#0000ff', 12]
+let s:unknown2 = ['#ffff00', 11]
 
 " Constants:
 let s:none = ['NONE', 'NONE']
@@ -42,7 +43,8 @@ let s:underline = 'underline,'
 let s:bold_underline = 'bold,underline,'
 
 " Highlighting Function:
-" TODO, heavily based on gruvbox's highlighting function
+" Heavily based on gruvbox's highlighting function,
+" which can be found at: https://github.com/morhetz/gruvbox/blob/master/colors/gruvbox.vim#L346
 function! s:HF(group, fg, ...)
 	" Foreground
 	let fg = a:fg
@@ -61,17 +63,15 @@ function! s:HF(group, fg, ...)
 		let emstr = 'none,'
 	endif
 
-	" Combine Inputs TODO, think of better title
+	" Highlight String
 	let histring = ['hi', a:group,
 				\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
 				\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
-				\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2], 'term=' . emstr[:-2]]
+				\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2],
+				\ 'term=' . emstr[:-2]]
 
 	execute join(histring, ' ')
 endfunction
-
-" Common Highlight Groups:
-call s:HF('jayRed', s:red)
 
 " General:
 call s:HF('Normal', s:fore, s:back)
@@ -82,12 +82,11 @@ call s:HF('Boolean', s:purple)
 call s:HF('Character', s:yellow)
 call s:HF('Number', s:purple)
 call s:HF('String', s:yellow)
-" call s:HF('Conditional', s:red)
-hi link Conditional jayRed
+call s:HF('Conditional', s:red)
 call s:HF('Constant', s:purple)
 call s:HF('Cursor', s:back, s:fore) "TODO, is this only in GUI?
 call s:HF('lCursor', s:back, s:fore) "TODO, is this only in GUI?
-call s:HF('Debug', s:unknown, s:none, s:bold)
+call s:HF('Debug', s:unknown, s:unknown2, s:bold)
 call s:HF('Define', s:aqua)
 call s:HF('Delimiter', s:back4)
 
@@ -105,8 +104,8 @@ call s:HF('FoldColumn', s:blue, s:back0)
 call s:HF('Folded', s:back4, s:back0)
 call s:HF('Function', s:green)
 call s:HF('Identifier', s:orange)
-call s:HF('Ignore', s:unknown, s:back0)
-call s:HF('IncSearch', s:none, s:back3) "TODO, background is maybe too dark, but then it won't match with visual
+call s:HF('Ignore', s:unknown, s:unknown2) "TODO, highlighting is ingnored
+call s:HF('IncSearch', s:none, s:back4)
 
 call s:HF('Keyword', s:red)
 call s:HF('Label', s:yellow)
@@ -120,17 +119,17 @@ call s:HF('Operator', s:red)
 call s:HF('Pmenu', s:aqua, s:back0)
 call s:HF('PmenuSel', s:fore, s:back2)
 call s:HF('PmenuSbar', s:none, s:back0)
-call s:HF('PmenuThumb', s:unknown)
+call s:HF('PmenuThumb', s:none, s:back2)
 
 call s:HF('PreCondit', s:green)
 call s:HF('PreProc', s:green)
 call s:HF('Question', s:green) "Command Question
 call s:HF('Repeat', s:red)
-call s:HF('Search', s:back, s:yellow) "TODO, maybe a diff color for searches
+call s:HF('Search', s:none, s:back4, s:bold_underline)
 
-call s:HF('SignColumn', s:unknown, s:back)
+call s:HF('SignColumn', s:unknown, s:unknown2) "TODO, this is overrided and linked to LineNr
 call s:HF('SpecialChar', s:red)
-call s:HF('SpecialComment', s:unknown, s:none, s:bold)
+call s:HF('SpecialComment', s:unknown, s:unknown2, s:bold)
 call s:HF('Special', s:aqua)
 
 if has("spell")
@@ -156,7 +155,7 @@ call s:HF('Underlined', s:back4, s:none, s:underline)
 call s:HF('VertSplit', s:back3, s:back0, s:bold)
 call s:HF('Visual', s:none, s:back3)
 call s:HF('VisualNOS', s:none, s:back3)
-call s:HF('WarningMsg', s:orange, s:back) " Command Warning
+call s:HF('WarningMsg', s:orange, s:back) "Command Warning
 call s:HF('WildMenu', s:aqua, s:back0)
 
 call s:HF('TabLine', s:fore2, s:back3)
