@@ -97,15 +97,15 @@ call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
 
 call s:HF('Directory', s:green, s:none, s:bold)
 call s:HF('Error', s:red, s:back0, s:bold)
-call s:HF('ErrorMsg', s:red, s:back) " Command Error
+call s:HF('ErrorMsg', s:red, s:back) "Command Error
 call s:HF('Exception', s:green)
 call s:HF('Float', s:purple)
 call s:HF('FoldColumn', s:blue, s:back0)
 call s:HF('Folded', s:back4, s:back0)
 call s:HF('Function', s:green)
 call s:HF('Identifier', s:orange)
-call s:HF('Ignore', s:unknown, s:unknown2) "TODO, highlighting is ingnored
-call s:HF('IncSearch', s:none, s:back4)
+call s:HF('Ignore', s:unknown, s:unknown2) "TODO, highlighting is ignored
+call s:HF('IncSearch', s:none, s:back3)
 
 call s:HF('Keyword', s:red)
 call s:HF('Label', s:yellow)
@@ -125,9 +125,9 @@ call s:HF('PreCondit', s:green)
 call s:HF('PreProc', s:green)
 call s:HF('Question', s:green) "Command Question
 call s:HF('Repeat', s:red)
-call s:HF('Search', s:none, s:back4, s:bold_underline)
+call s:HF('Search', s:none, s:back3, s:bold_underline)
 
-call s:HF('SignColumn', s:unknown, s:unknown2) "TODO, this is overrided and linked to LineNr
+call s:HF('SignColumn', s:unknown, s:unknown2) "TODO, this is overrode and linked to LineNr
 call s:HF('SpecialChar', s:red)
 call s:HF('SpecialComment', s:unknown, s:unknown2, s:bold)
 call s:HF('Special', s:aqua)
