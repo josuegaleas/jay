@@ -14,6 +14,7 @@ endif
 let g:colors_name="jay"
 
 " Palette:
+let s:none = ['NONE', 'NONE']
 " Background Colors
 let s:back0 = ['#121212', 233]
 let s:back = ['#1c1c1c', 234]
@@ -39,7 +40,7 @@ let s:unknown2 = ['#ffff00', 11]
 " 16 color support
 if &t_Co == 16
 	let s:back0[1] = 0
-	let s:back[1] = 0
+	let s:back[1] = 'NONE'
 	let s:back2[1] = 0
 	let s:back3[1] = 8
 	let s:back4[1] = 8
@@ -56,7 +57,6 @@ if &t_Co == 16
 endif
 
 " Emphasis:
-let s:none = ['NONE', 'NONE']
 let s:bold = 'bold,'
 let s:underline = 'underline,'
 let s:bold_underline = 'bold,underline,'
@@ -123,7 +123,7 @@ call s:HF('FoldColumn', s:blue, s:back0)
 call s:HF('Folded', s:back4, s:back0)
 call s:HF('Function', s:green)
 call s:HF('Identifier', s:orange)
-call s:HF('Ignore', s:unknown, s:unknown2) "TODO, highlighting is ignored
+call s:HF('Ignore', s:fore3)
 call s:HF('IncSearch', s:none, s:back3)
 
 call s:HF('Keyword', s:red)
@@ -148,7 +148,7 @@ call s:HF('Search', s:none, s:back3, s:bold_underline)
 
 call s:HF('SignColumn', s:unknown, s:unknown2) "TODO, this is overrode and linked to LineNr
 call s:HF('SpecialChar', s:red)
-call s:HF('SpecialComment', s:unknown, s:unknown2, s:bold)
+call s:HF('SpecialComment', s:fore3)
 call s:HF('Special', s:aqua)
 
 if has("spell")
