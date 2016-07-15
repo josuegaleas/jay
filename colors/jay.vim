@@ -1,6 +1,6 @@
 " Author: Josue <jdevalerie@gmail.com>
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: June 25, 2016
+" Last Edit: July 15, 2016
 " Description: Yet another colorscheme for Vim.
 
 " Initial Setup:
@@ -27,12 +27,12 @@ let s:fore2 = ['#bcbcbc', 250]
 let s:fore3 = ['#9e9e9e', 247]
 " Regular Colors
 let s:red = ['#df5f5f', 167]
-let s:green = ['#5fdf5f', 77]
+let s:orange = ['#dfaf5f', 179]
 let s:yellow = ['#dfdf5f', 185]
+let s:green = ['#5fdf5f', 77]
+let s:aqua = ['#5fdfdf', 80]
 let s:blue = ['#5f87df', 68]
 let s:purple = ['#af5fdf', 134]
-let s:aqua = ['#5fdfdf', 80]
-let s:orange = ['#dfaf5f', 179]
 " TODO, Debugging Colors
 let s:unknown = ['#0000ff', 12]
 let s:unknown2 = ['#ffff00', 11]
