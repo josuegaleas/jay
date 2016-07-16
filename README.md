@@ -6,6 +6,7 @@ Yet another colorscheme for Vim. Inspired by [Molokai](https://github.com/tomasr
 - Support for 16 color terminals
 
 ## Palette
+![Palette](./images/palette.png?raw=true)
 ```
 jay      HEX       Vim
 ------   -------   ---
