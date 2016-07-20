@@ -38,6 +38,7 @@ colorscheme jay
 - Support for various plugins
 - Extended syntax highlighting for various languages
 - A light mode option
+- Support for environments that use italics
 
 ## References
 - [gruvbox](https://github.com/morhetz/gruvbox)
