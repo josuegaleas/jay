@@ -124,7 +124,7 @@ call s:HF('Folded', s:back4, s:back0)
 call s:HF('Function', s:green)
 call s:HF('Identifier', s:orange)
 call s:HF('Ignore', s:fore3)
-call s:HF('IncSearch', s:none, s:back3)
+call s:HF('IncSearch', s:none, s:back4)
 
 call s:HF('Keyword', s:red)
 call s:HF('Label', s:yellow)
