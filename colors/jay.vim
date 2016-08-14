@@ -1,6 +1,6 @@
 " Author: Josue <jdevalerie@gmail.com>
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: July 15, 2016
+" Last Edit: July 26, 2016
 " Description: Yet another colorscheme for Vim.
 
 " Initial Setup:
@@ -39,7 +39,7 @@ let s:unknown2 = ['#ffff00', 11]
 
 " 16 color support
 if &t_Co == 16
-	let s:back0[1] = 0
+	let s:back0[1] = 'NONE'
 	let s:back[1] = 'NONE'
 	let s:back2[1] = 0
 	let s:back3[1] = 8
@@ -187,5 +187,3 @@ call s:HF('ColorColumn', s:none, s:back2)
 call s:HF('LineNr', s:back4, s:back2)
 call s:HF('NonText', s:back3)
 call s:HF('SpecialKey', s:back3)
-
-set background=dark

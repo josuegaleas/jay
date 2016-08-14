@@ -35,10 +35,10 @@ colorscheme jay
 ```
 
 ## To Do
-- Support for various plugins
-- Extended syntax highlighting for various languages
 - A light mode option
+- Support for various plugins
 - Support for environments that use italics
+- Improve support for 16 color terminals
 
 ## References
 - [gruvbox](https://github.com/morhetz/gruvbox)
