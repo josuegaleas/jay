@@ -1,6 +1,6 @@
 " Author: Josue <jdevalerie@gmail.com>
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: July 26, 2016
+" Last Edit: October 2nd, 2016
 " Description: Yet another colorscheme for Vim.
 
 " Initial Setup:
@@ -15,6 +15,14 @@ let g:colors_name="jay"
 
 " Palette:
 let s:none = ['NONE', 'NONE']
+" Regular Colors
+let s:red = ['#df5f5f', 167]
+let s:orange = ['#dfaf5f', 179]
+let s:yellow = ['#dfdf5f', 185]
+let s:green = ['#5fdf5f', 77]
+let s:aqua = ['#5fdfdf', 80]
+let s:blue = ['#5f87df', 68]
+let s:purple = ['#af5fdf', 134]
 " Background Colors
 let s:back0 = ['#121212', 233]
 let s:back = ['#1c1c1c', 234]
@@ -25,14 +33,6 @@ let s:back4 = ['#606060', 241]
 let s:fore = ['#dadada', 253]
 let s:fore2 = ['#bcbcbc', 250]
 let s:fore3 = ['#9e9e9e', 247]
-" Regular Colors
-let s:red = ['#df5f5f', 167]
-let s:orange = ['#dfaf5f', 179]
-let s:yellow = ['#dfdf5f', 185]
-let s:green = ['#5fdf5f', 77]
-let s:aqua = ['#5fdfdf', 80]
-let s:blue = ['#5f87df', 68]
-let s:purple = ['#af5fdf', 134]
 " TODO, Debugging Colors
 let s:unknown = ['#0000ff', 12]
 let s:unknown2 = ['#ffff00', 11]
@@ -95,7 +95,7 @@ endfunction
 " General:
 call s:HF('Normal', s:fore, s:back)
 call s:HF('CursorLine', s:none, s:back2)
-call s:HF('CursorLineNr', s:orange, s:none)
+call s:HF('CursorLineNr', s:orange)
 
 call s:HF('Boolean', s:purple)
 call s:HF('Character', s:yellow)
@@ -105,7 +105,7 @@ call s:HF('Conditional', s:red)
 call s:HF('Constant', s:purple)
 call s:HF('Cursor', s:back, s:fore) "TODO, is this only in GUI?
 call s:HF('lCursor', s:back, s:fore) "TODO, is this only in GUI?
-call s:HF('Debug', s:unknown, s:unknown2, s:bold)
+call s:HF('Debug', s:unknown, s:unknown2, s:bold_underline)
 call s:HF('Define', s:aqua)
 call s:HF('Delimiter', s:back4)
 
@@ -130,7 +130,7 @@ call s:HF('Keyword', s:red)
 call s:HF('Label', s:yellow)
 call s:HF('Macro', s:yellow)
 
-call s:HF('MatchParen', s:back0, s:orange, s:bold)
+call s:HF('MatchParen', s:back, s:orange, s:bold)
 call s:HF('ModeMsg', s:fore)
 call s:HF('MoreMsg', s:blue) "Command 'more'
 call s:HF('Operator', s:red)
@@ -146,7 +146,7 @@ call s:HF('Question', s:green) "Command Question
 call s:HF('Repeat', s:red)
 call s:HF('Search', s:none, s:back3, s:bold_underline)
 
-call s:HF('SignColumn', s:unknown, s:unknown2) "TODO, this is overrode and linked to LineNr
+call s:HF('SignColumn', s:unknown, s:unknown2, s:bold_underline) "TODO, this is overrode and linked to LineNr
 call s:HF('SpecialChar', s:red)
 call s:HF('SpecialComment', s:fore3)
 call s:HF('Special', s:aqua)
