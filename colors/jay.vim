@@ -4,11 +4,11 @@
 " Description: Yet another colorscheme for Vim.
 
 " Initial Setup:
-if version > 580
-	hi clear
-	if exists("syntax_on")
-		syntax reset
-	endif
+set background=dark
+hi clear
+
+if exists("syntax_on")
+	syntax reset
 endif
 
 let g:colors_name="jay"
@@ -76,20 +76,18 @@ function! s:HF(group, fg, ...)
 	endif
 
 	" Emphasis
-	if a:0 >= 2 && strlen(a:2)
+	if a:0 >= 2
 		let emstr = a:2
 	else
 		let emstr = 'none,'
 	endif
 
-	" Highlight String
-	let histring = ['hi', a:group,
-				\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
-				\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
-				\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2],
-				\ 'term=' . emstr[:-2]]
-
-	execute join(histring, ' ')
+	" Highlight
+	execute join(['hi', a:group,
+		\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
+		\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
+		\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2],
+		\ 'term=' . emstr[:-2]], ' ')
 endfunction
 
 " General:
