@@ -1,6 +1,6 @@
 " Author: Josue <jdevalerie@gmail.com>
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: October 2nd, 2016
+" Last Edit: October 16th, 2016
 " Description: Yet another colorscheme for Vim.
 
 " Initial Setup:
@@ -30,9 +30,11 @@ let s:back2 = ['#262626', 235]
 let s:back3 = ['#444444', 238]
 let s:back4 = ['#606060', 241]
 " Foreground Colors
+let s:fore0 = ['#e4e4e4', 254]
 let s:fore = ['#dadada', 253]
 let s:fore2 = ['#bcbcbc', 250]
 let s:fore3 = ['#9e9e9e', 247]
+let s:fore4 = ['#808080', 244]
 " TODO, Debugging Colors
 let s:unknown = ['#0000ff', 12]
 let s:unknown2 = ['#ffff00', 11]
@@ -103,26 +105,26 @@ call s:HF('Conditional', s:red)
 call s:HF('Constant', s:purple)
 call s:HF('Cursor', s:back, s:fore) "TODO, is this only in GUI?
 call s:HF('lCursor', s:back, s:fore) "TODO, is this only in GUI?
-call s:HF('Debug', s:unknown, s:unknown2, s:bold_underline)
+call s:HF('Debug', s:unknown, s:unknown2, s:bold_underline) "FIXME
 call s:HF('Define', s:aqua)
-call s:HF('Delimiter', s:back4)
+call s:HF('Delimiter', s:fore4)
 
 call s:HF('DiffAdd', s:green, s:back2)
 call s:HF('DiffChange', s:yellow, s:back2)
 call s:HF('DiffDelete', s:red, s:back2)
 call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
 
-call s:HF('Directory', s:green, s:none, s:bold)
+call s:HF('Directory', s:green)
 call s:HF('Error', s:red, s:back0, s:bold)
-call s:HF('ErrorMsg', s:red, s:back) "Command Error
+call s:HF('ErrorMsg', s:red) "Command Error
 call s:HF('Exception', s:green)
 call s:HF('Float', s:purple)
 call s:HF('FoldColumn', s:blue, s:back0)
-call s:HF('Folded', s:back4, s:back0)
+call s:HF('Folded', s:back3, s:back0)
 call s:HF('Function', s:green)
 call s:HF('Identifier', s:orange)
 call s:HF('Ignore', s:fore3)
-call s:HF('IncSearch', s:none, s:back4)
+call s:HF('IncSearch', s:fore, s:back4, s:bold)
 
 call s:HF('Keyword', s:red)
 call s:HF('Label', s:yellow)
@@ -135,35 +137,35 @@ call s:HF('Operator', s:red)
 
 call s:HF('Pmenu', s:aqua, s:back0)
 call s:HF('PmenuSel', s:fore, s:back2)
-call s:HF('PmenuSbar', s:none, s:back0)
-call s:HF('PmenuThumb', s:none, s:back2)
+call s:HF('PmenuSbar', s:none, s:back2)
+call s:HF('PmenuThumb', s:none, s:back3)
 
 call s:HF('PreCondit', s:green)
 call s:HF('PreProc', s:green)
 call s:HF('Question', s:green) "Command Question
 call s:HF('Repeat', s:red)
-call s:HF('Search', s:none, s:back3, s:bold_underline)
+call s:HF('Search', s:fore2, s:back3, s:bold_underline)
 
-call s:HF('SignColumn', s:unknown, s:unknown2, s:bold_underline) "TODO, this is overrode and linked to LineNr
+call s:HF('SignColumn', s:unknown, s:unknown2, s:bold_underline) "FIXME, this is overrode and linked to LineNr
 call s:HF('SpecialChar', s:red)
 call s:HF('SpecialComment', s:fore3)
 call s:HF('Special', s:aqua)
 
 if has("spell")
-	hi SpellBad guisp=#df5f5f guibg=NONE ctermbg=NONE gui=undercurl cterm=bold,undercurl term=none
-	hi SpellCap guisp=#5f87df guibg=NONE ctermbg=NONE gui=undercurl cterm=bold,undercurl term=none
-	hi SpellLocal guisp=#5fdfdf guibg=NONE ctermbg=NONE gui=undercurl cterm=bold,undercurl term=none
-	hi SpellRare guisp=#af5fdf guibg=NONE ctermbg=NONE gui=undercurl cterm=bold,undercurl term=none
+	hi SpellBad guisp=#df5f5f guibg=NONE ctermbg=167 gui=bold,undercurl cterm=bold,undercurl term=bold,undercurl
+	hi SpellCap guisp=#5fdf5f guibg=NONE ctermbg=77 gui=bold,undercurl cterm=bold,undercurl term=bold,undercurl
+	hi SpellRare guisp=#af5fdf guibg=NONE ctermbg=134 gui=bold,undercurl cterm=bold,undercurl term=bold,undercurl
+	hi SpellLocal guisp=#dfaf5f guibg=NONE ctermbg=179 gui=bold,undercurl cterm=bold,undercurl term=bold,undercurl
 endif
 
 call s:HF('Statement', s:red)
 call s:HF('Statusline', s:fore3, s:back2)
-call s:HF('StatuslineNC', s:fore, s:back)
+call s:HF('StatuslineNC', s:back3, s:back2)
 call s:HF('StorageClass', s:orange)
 call s:HF('Structure', s:orange)
 call s:HF('Tag', s:red)
 call s:HF('Title', s:red)
-call s:HF('Todo', s:fore, s:back0, s:bold)
+call s:HF('Todo', s:fore0, s:back0, s:bold)
 
 call s:HF('Typedef', s:aqua)
 call s:HF('Type', s:aqua)
@@ -172,7 +174,7 @@ call s:HF('Underlined', s:back4, s:none, s:underline)
 call s:HF('VertSplit', s:back3, s:back0, s:bold)
 call s:HF('Visual', s:none, s:back3)
 call s:HF('VisualNOS', s:none, s:back3)
-call s:HF('WarningMsg', s:orange, s:back) "Command Warning
+call s:HF('WarningMsg', s:orange) "Command Warning
 call s:HF('WildMenu', s:aqua, s:back0)
 
 call s:HF('TabLine', s:fore2, s:back3)
