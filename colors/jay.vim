@@ -152,10 +152,22 @@ call s:HF('SpecialComment', s:fore3)
 call s:HF('Special', s:aqua)
 
 if has("spell")
-	hi SpellBad guisp=#df5f5f guibg=NONE ctermbg=167 gui=bold,undercurl cterm=bold,undercurl term=bold,undercurl
-	hi SpellCap guisp=#5fdf5f guibg=NONE ctermbg=77 gui=bold,undercurl cterm=bold,undercurl term=bold,undercurl
-	hi SpellRare guisp=#af5fdf guibg=NONE ctermbg=134 gui=bold,undercurl cterm=bold,undercurl term=bold,undercurl
-	hi SpellLocal guisp=#dfaf5f guibg=NONE ctermbg=179 gui=bold,undercurl cterm=bold,undercurl term=bold,undercurl
+	" Highlighting Function For Spelling:
+	" Based on gruvbox's highlighting function,
+	" which can be found at: https://github.com/morhetz/gruvbox/blob/master/colors/gruvbox.vim#L346
+	function! s:HFFS(group, sp, bg)
+		execute join(['hi', a:group,
+			\ 'guisp=' . a:sp[0],
+			\ 'guifg=NONE ctermfg=' . a:sp[1],
+			\ 'guibg=NONE ctermbg=' . a:bg[1],
+			\ 'gui=bold,undercurl cterm=bold,undercurl',
+			\ 'term=bold,undercurl '])
+	endfunction
+
+	call s:HFFS('SpellBad', s:red, s:back3)
+	call s:HFFS('SpellCap', s:orange, s:back3)
+	call s:HFFS('SpellRare', s:purple, s:back3)
+	call s:HFFS('SpellLocal', s:green, s:back3)
 endif
 
 call s:HF('Statement', s:red)
