@@ -1,6 +1,6 @@
 " Author: Josue <jdevalerie@gmail.com>
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: October 16th, 2016
+" Last Edit: October 18th, 2016
 " Description: Yet another colorscheme for Vim.
 
 " Initial Setup:
@@ -39,7 +39,7 @@ let s:fore4 = ['#808080', 244]
 let s:unknown = ['#0000ff', 12]
 let s:unknown2 = ['#ffff00', 11]
 
-" 16 color support
+" 16 color terminal support
 if &t_Co == 16
 	let s:back0[1] = 'NONE'
 	let s:back[1] = 'NONE'
@@ -146,7 +146,7 @@ call s:HF('Question', s:green) "Command Question
 call s:HF('Repeat', s:red)
 call s:HF('Search', s:fore2, s:back3, s:bold_underline)
 
-call s:HF('SignColumn', s:unknown, s:unknown2, s:bold_underline) "FIXME, this is overrode and linked to LineNr
+call s:HF('SignColumn', s:none, s:back0)
 call s:HF('SpecialChar', s:red)
 call s:HF('SpecialComment', s:fore3)
 call s:HF('Special', s:aqua)
@@ -155,19 +155,19 @@ if has("spell")
 	" Highlighting Function For Spelling:
 	" Based on gruvbox's highlighting function,
 	" which can be found at: https://github.com/morhetz/gruvbox/blob/master/colors/gruvbox.vim#L346
-	function! s:HFFS(group, sp, bg)
+	function! s:HFFS(group, sp)
 		execute join(['hi', a:group,
 			\ 'guisp=' . a:sp[0],
 			\ 'guifg=NONE ctermfg=' . a:sp[1],
-			\ 'guibg=NONE ctermbg=' . a:bg[1],
+			\ 'guibg=NONE ctermbg=' . s:back3[1],
 			\ 'gui=bold,undercurl cterm=bold,undercurl',
 			\ 'term=bold,undercurl '])
 	endfunction
 
-	call s:HFFS('SpellBad', s:red, s:back3)
-	call s:HFFS('SpellCap', s:orange, s:back3)
-	call s:HFFS('SpellRare', s:purple, s:back3)
-	call s:HFFS('SpellLocal', s:green, s:back3)
+	call s:HFFS('SpellBad', s:red)
+	call s:HFFS('SpellCap', s:orange)
+	call s:HFFS('SpellRare', s:purple)
+	call s:HFFS('SpellLocal', s:green)
 endif
 
 call s:HF('Statement', s:red)
@@ -181,7 +181,7 @@ call s:HF('Todo', s:fore0, s:back0, s:bold)
 
 call s:HF('Typedef', s:aqua)
 call s:HF('Type', s:aqua)
-call s:HF('Underlined', s:back4, s:none, s:underline)
+call s:HF('Underlined', s:blue, s:none, s:underline)
 
 call s:HF('VertSplit', s:back3, s:back0, s:bold)
 call s:HF('Visual', s:none, s:back3)
