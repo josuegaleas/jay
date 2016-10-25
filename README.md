@@ -3,6 +3,7 @@ Yet another colorscheme for Vim. Inspired by [Molokai](https://github.com/tomasr
 
 ## Features
 - Same color palette for both terminal and GUI Vim
+- Matching themes for [Airline](https://github.com/vim-airline/vim-airline) and [Lightline](https://github.com/itchyny/lightline.vim)
 - Support for 16 color terminals
 
 ## Palette
@@ -12,9 +13,9 @@ Tabulated values can be found [here](./palette.md)
 
 ## Installation
 #### Method 1: Manually
-- Copy or move `jay.vim` in `colors/` into your `.vim/colors/` directory
-- If your `.vim/colors/` directory does not exist, copy or move `colors/` into your `.vim/` directory
-- On Windows, your `.vim/` directory may be called `vimfiles` instead
+- Download this repository and unzip the contents
+- Copy or move the contents into your `.vim/` directory
+	- On Windows, your `.vim/` directory may be called `vimfiles` instead
 
 #### Method 2: Vundle
 - Add `Plugin 'josuegaleas/jay'` to your `.vimrc` file
@@ -32,6 +33,14 @@ After any of these methods, add the following lines to your `.vimrc` file:
 ```
 syntax enable
 colorscheme jay
+```
+If you would like the matching theme for Airline, add the following line to your `.vimrc` file:
+```
+let g:airline_theme='jay'
+```
+If you would like the matching theme for Lightline, add the following line to your `.vimrc` file:
+```
+let g:lightline = {'colorscheme': 'jay'}
 ```
 
 ## To Do
