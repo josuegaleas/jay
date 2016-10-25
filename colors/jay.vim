@@ -1,7 +1,10 @@
-" Author: Josue <jdevalerie@gmail.com>
+" =============================================================================
+" Author: josuegaleas
+" License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: October 18th, 2016
+" Last Edit: October 25th, 2016
 " Description: Yet another colorscheme for Vim.
+" =============================================================================
 
 " Initial Setup:
 set background=dark
