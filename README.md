@@ -9,7 +9,14 @@ Yet another colorscheme for Vim. Inspired by [Molokai](https://github.com/tomasr
 ## Palette
 ![Palette](./images/palette.png?raw=true)
 
-Tabulated values can be found [here](./palette.md)
+Tabulated values can be found [here](./palette.md).
+
+## Gallery
+Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack).
+#### Airline Theme
+![Airline](./images/statusline_Airline.png?raw=true)
+#### Lightline Theme
+![Lightline](./images/statusline_Lightline.png?raw=true)
 
 ## Installation
 #### Method 1: Manually
@@ -26,7 +33,7 @@ Clone this repository into your `.vim/bundles` directory with:
 ```
 git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
 ```
-On Windows, your `.vim/` directory may be called `vimfiles` instead
+On Windows, your `.vim/` directory may be called `vimfiles` instead.
 
 #### Updating `.vimrc`
 After any of these methods, add the following lines to your `.vimrc` file:
