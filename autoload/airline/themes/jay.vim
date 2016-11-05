@@ -1,7 +1,7 @@
 " =============================================================================
 " Author: josuegaleas
 " License: MIT License
-" Last Change: November 3rd, 2016
+" Last Change: November 4th, 2016
 " =============================================================================
 
 " Palette:
@@ -39,7 +39,7 @@ let s:err = [s:back2[0], s:red[0], s:back2[1], s:red[1], 'bold']
 
 let s:T1 = [s:back2[0], s:back4[0], s:back2[1], s:back4[1], 'bold']
 let s:T2 = [s:back2[0], s:yellow[0], s:back2[1], s:yellow[1], 'bold']
-let s:T3 = [s:red[0], s:back3[0], s:red[1], s:back3[1]]
+let s:T3 = [s:back2[0], s:orange[0], s:back2[1], s:orange[1]]
 
 " Accents
 let g:airline#themes#jay#palette.accents = {'red': [s:red[0], '', s:red[1], '']}
@@ -80,13 +80,13 @@ let g:airline#themes#jay#palette.visual_modified.airline_error = s:err
 let g:airline#themes#jay#palette.inactive = airline#themes#generate_color_map(s:inac, s:inac, s:inac)
 let g:airline#themes#jay#palette.inactive_modified = {'airline_c': s:N2}
 
-" Tabline:
+" Tabline
 let g:airline#themes#jay#palette.tabline = {
 	\ 'airline_tabsel': s:T1,
 	\ 'airline_tabtype': s:T2,
-	\ 'airline_tabmod': s:warn,
+	\ 'airline_tabmod': s:err,
 	\ 'airline_tabmod_unsel': s:T3,
 	\ 'airline_tab_right': s:mid,
 	\ 'airline_tabsel_right': s:T1,
-	\ 'airline_tabmod_right': s:warn,
+	\ 'airline_tabmod_right': s:err,
 	\ 'airline_tabmod_unsel_right': s:T3}

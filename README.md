@@ -15,6 +15,7 @@ Tabulated values can be found [here](./palette.md).
 Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack).
 #### Airline Theme
 ![Airline](./images/statusline_Airline.png?raw=true)
+
 #### Lightline Theme
 ![Lightline](./images/statusline_Lightline.png?raw=true)
 
@@ -29,7 +30,7 @@ Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack).
 - Restart Vim, and then use the command `:PluginInstall` to install the bundle
 
 #### Method 3: Pathogen
-Clone this repository into your `.vim/bundles` directory with:
+Clone this repository into your `.vim/bundles/` directory with:
 ```
 git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
 ```
@@ -51,22 +52,20 @@ let g:lightline = {'colorscheme': 'jay'}
 ```
 
 ## To Do
-- A light mode option
-- Support for various plugins
-- Support for environments that use italics
-- Improve support for 16 color terminals
+- [ ] A light mode option
+- [ ] Support for various plugins
+- [ ] Support for environments that use italics
+- [ ] Improve support for 16 color terminals
 
 ## References
 - [gruvbox](https://github.com/morhetz/gruvbox)
 - [Solarized](https://github.com/altercation/vim-colors-solarized)
 - [Vimcasts, Episode 25](http://vimcasts.org/episodes/creating-colorschemes-for-vim/)
 
-## Tools
+## Tools Used
 - [Xterm Color Table](https://github.com/guns/xterm-color-table.vim)
 - [Colorizer](https://github.com/chrisbra/Colorizer)
 - [HiLinkTrace](https://github.com/gerw/vim-HiLinkTrace)
-
-## Commands
 - `:help highlight-groups`
 - `:help group-name`
 - `:highlight`

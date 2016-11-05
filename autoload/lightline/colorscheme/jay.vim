@@ -1,7 +1,7 @@
 " =============================================================================
 " Author: josuegaleas
 " License: MIT License
-" Last Change: October 25th, 2016
+" Last Change: November 4th, 2016
 " =============================================================================
 
 " Palette:
@@ -25,13 +25,16 @@ let s:p.normal.right = copy(s:p.normal.left)
 let s:p.normal.error = [ [ s:back2, s:red ] ]
 let s:p.normal.warning = [ [ s:back2, s:orange ] ]
 
+let s:p.insert.left = [ [ s:back2, s:green ], [ s:fore2, s:back3 ] ]
+let s:p.insert.right = copy(s:p.insert.left)
+let s:p.replace.left = [ [ s:back2, s:purple ], [ s:fore2, s:back3 ] ]
+let s:p.replace.right = copy(s:p.replace.left)
+let s:p.visual.left = [ [ s:back2, s:blue ], [ s:fore2, s:back3 ] ]
+let s:p.visual.right = copy(s:p.visual.left)
+
 let s:p.inactive.left = [ [ s:back3, s:back2 ], [ s:back3, s:back2 ] ]
 let s:p.inactive.middle = [ [ s:back3, s:back2 ] ]
 let s:p.inactive.right = copy(s:p.inactive.left)
-
-let s:p.insert.left = [ [ s:back3, s:green ], [ s:fore2, s:back3 ] ]
-let s:p.replace.left = [ [ s:back3, s:purple ], [ s:fore2, s:back3 ] ]
-let s:p.visual.left = [ [ s:back3, s:blue ], [ s:fore2, s:back3 ] ]
 
 let s:p.tabline.left = [ [ s:fore2, s:back3 ] ]
 let s:p.tabline.tabsel = [ [ s:back2, s:back4 ] ]
