@@ -20,26 +20,28 @@ Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack).
 ![Lightline](./images/statusline_Lightline.png?raw=true)
 
 ## Installation
-#### Method 1: Manually
+### Installing the Colorscheme
+**Method 1: Manually**
 - Download this repository and unzip the contents
 - Copy or move the contents into your `.vim/` directory
 	- On Windows, your `.vim/` directory may be called `vimfiles` instead
 
-#### Method 2: Vundle
+**Method 2: Vundle (or similar plugin manager)**
 - Add `Plugin 'josuegaleas/jay'` to your `.vimrc` file
 - Restart Vim, and then use the command `:PluginInstall` to install the bundle
 
-#### Method 3: Pathogen
-Clone this repository into your `.vim/bundles/` directory with:
-```
-git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
-```
-On Windows, your `.vim/` directory may be called `vimfiles` instead.
+**Method 3: Pathogen**
+- Clone this repository into your `.vim/bundles/` directory with:
 
-#### Updating `.vimrc`
-After any of these methods, add the following lines to your `.vimrc` file:
+	```
+	git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
+	```
+	- On Windows, your `.vim/` directory may be called `vimfiles` instead
+
+### Updating `.vimrc`
+Add the following lines to your `.vimrc` file:
 ```
-syntax enable
+syntax on
 colorscheme jay
 ```
 If you would like the matching theme for Airline, add the following line to your `.vimrc` file:
