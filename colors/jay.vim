@@ -2,12 +2,11 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: November 3rd, 2016
+" Last Edit: December 27th, 2016
 " Description: Yet another colorscheme for Vim.
 " =============================================================================
 
 " Initial Setup:
-set background=dark
 hi clear
 
 if exists("syntax_on")
@@ -41,6 +40,29 @@ let s:fore4 = ['#808080', 244]
 " TODO, Debugging Colors
 let s:unknown = ['#0000ff', 12]
 let s:unknown2 = ['#ffff00', 11]
+
+if &background == "light"
+	" Regular Colors
+	let s:red = ['#af0000', 124]
+	let s:orange = ['#af8700', 136]
+	let s:yellow = ['#afaf00', 142]
+	let s:green = ['#00af00', 34]
+	let s:aqua = ['#00afaf', 37]
+	let s:blue = ['#005faf', 25]
+	let s:purple = ['#8700af', 91]
+	" Background Colors
+	let s:back0 = ['#e4e4e4', 254]
+	let s:back = ['#dadada', 253]
+	let s:back2 = ['#d0d0d0', 252]
+	let s:back3 = ['#b2b2b2', 249]
+	let s:back4 = ['#949494', 246]
+	" Foreground Colors
+	let s:fore0 = ['#121212', 233]
+	let s:fore = ['#1c1c1c', 234]
+	let s:fore2 = ['#3a3a3a', 237]
+	let s:fore3 = ['#585858', 240]
+	let s:fore4 = ['#767676', 243]
+endif
 
 " 16 color terminal support
 if &t_Co == 16

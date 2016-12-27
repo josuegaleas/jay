@@ -3,28 +3,35 @@ Yet another colorscheme for Vim. Inspired by [Molokai](https://github.com/tomasr
 
 ## Features
 - Same color palette for both terminal and GUI Vim
+- Light and dark variants
 - Matching themes for [Airline](https://github.com/vim-airline/vim-airline) and [Lightline](https://github.com/itchyny/lightline.vim)
 - Support for 16 color terminals
 
 ## Palette
-![Palette](./images/palette.png?raw=true)
+![Palette (Dark)](./images/palette_Dark.png?raw=true)
+
+![Palette (Light)](./images/palette_Light.png?raw=true)
 
 Tabulated values can be found [here](./palette.md).
 
 ## Gallery
 Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack).
 #### Airline Theme
-![Airline](./images/statusline_Airline.png?raw=true)
+![Airline](./images/statusline_Airline_Dark.png?raw=true)
+
+![Airline](./images/statusline_Airline_Light.png?raw=true)
 
 #### Lightline Theme
-![Lightline](./images/statusline_Lightline.png?raw=true)
+![Lightline](./images/statusline_Lightline_Dark.png?raw=true)
+
+![Lightline](./images/statusline_Lightline_Light.png?raw=true)
 
 ## Installation
 ### Installing the Colorscheme
 **Method 1: Manually**
 - Download this repository and unzip the contents
 - Copy or move the contents into your `.vim/` directory
-	- On Windows, your `.vim/` directory may be called `vimfiles` instead
+	- On Windows, your `.vim/` directory may be called `vimfiles\` instead
 
 **Method 2: Vundle (or similar plugin manager)**
 - Add `Plugin 'josuegaleas/jay'` to your `.vimrc` file
@@ -36,12 +43,14 @@ Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack).
 	```
 	git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
 	```
-	- On Windows, your `.vim/` directory may be called `vimfiles` instead
+	- On Windows, your `.vim/` directory may be called `vimfiles\` instead
 
 ### Updating `.vimrc`
+#### Dark Variant
 Add the following lines to your `.vimrc` file:
 ```
 syntax on
+set background=dark
 colorscheme jay
 ```
 If you would like the matching theme for Airline, add the following line to your `.vimrc` file:
@@ -53,11 +62,29 @@ If you would like the matching theme for Lightline, add the following line to yo
 let g:lightline = {'colorscheme': 'jay'}
 ```
 
+#### Light Variant
+Add the following lines to your `.vimrc` file:
+```
+syntax on
+set background=light
+colorscheme jay
+```
+If you would like the matching theme for Airline, add the following line to your `.vimrc` file:
+```
+let g:airline_theme='jay_light'
+```
+If you would like the matching theme for Lightline, add the following line to your `.vimrc` file:
+```
+let g:lightline = {'colorscheme': 'jay_light'}
+```
+
 ## To Do
-- [ ] A light mode option
+- [x] A light mode option
+- [ ] Improve light mode option
 - [ ] Support for various plugins
 - [ ] Support for environments that use italics
 - [ ] Improve support for 16 color terminals
+- [ ] Support for 8 color terminals
 
 ## References
 - [gruvbox](https://github.com/morhetz/gruvbox)
