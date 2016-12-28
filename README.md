@@ -46,10 +46,11 @@ Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack).
 	- On Windows, your `.vim/` directory may be called `vimfiles\` instead
 
 ### Updating `.vimrc`
-##### Dark Variant
+#### Dark Variant
 Add the following lines to your `.vimrc` file:
 ```
 syntax on
+set background=dark
 colorscheme jay
 ```
 If you would like the matching theme for Airline, add the following line to your `.vimrc` file:
@@ -61,7 +62,7 @@ If you would like the matching theme for Lightline, add the following line to yo
 let g:lightline = {'colorscheme': 'jay'}
 ```
 
-##### Light Variant
+#### Light Variant
 Add the following lines to your `.vimrc` file:
 ```
 syntax on
