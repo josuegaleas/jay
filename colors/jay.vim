@@ -2,8 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: December 31st, 2016
-" Description: Yet another colorscheme for Vim.
+" Last Edit: April 8, 2017
 " =============================================================================
 
 " Initial Setup:
@@ -150,10 +149,10 @@ call s:HF('Number', s:purple)
 call s:HF('String', s:yellow)
 call s:HF('Conditional', s:red)
 call s:HF('Constant', s:purple)
-call s:HF('Cursor', s:back, s:fore) "TODO, is this only in GUI?
-call s:HF('lCursor', s:back, s:fore) "TODO, is this only in GUI?
+call s:HF('Cursor', s:back, s:fore)
+call s:HF('lCursor', s:back, s:fore)
 call s:HF('Debug', s:unknown, s:unknown2, s:bold_underline) "FIXME
-call s:HF('Define', s:aqua)
+call s:HF('Define', s:orange)
 call s:HF('Delimiter', s:fore4)
 
 call s:HF('DiffAdd', s:green, s:back2)
@@ -179,7 +178,7 @@ call s:HF('Macro', s:yellow)
 
 call s:HF('MatchParen', s:back, s:orange, s:bold)
 call s:HF('ModeMsg', s:fore)
-call s:HF('MoreMsg', s:blue) "Command 'more'
+call s:HF('MoreMsg', s:blue) "Command More
 call s:HF('Operator', s:red)
 
 call s:HF('Pmenu', s:aqua, s:back0)
