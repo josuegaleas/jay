@@ -1,7 +1,7 @@
 " =============================================================================
 " Author: josuegaleas
 " License: MIT License
-" Last Change: November 4th, 2016
+" Last Change: July 1, 2017
 " =============================================================================
 
 " Palette:
@@ -17,29 +17,75 @@ let s:back4 = ['#606060', 241]
 let s:fore2 = ['#bcbcbc', 250]
 let s:fore3 = ['#9e9e9e', 247]
 
+if &background == "light"
+	let s:red = ['#af0000', 124]
+	let s:orange = ['#af8700', 136]
+	let s:yellow = ['#afaf00', 142]
+	let s:green = ['#00af00', 34]
+	let s:blue = ['#005faf', 25]
+	let s:purple = ['#8700af', 91]
+	let s:back2 = ['#d0d0d0', 252]
+	let s:back3 = ['#b2b2b2', 249]
+	let s:back4 = ['#949494', 246]
+	let s:fore2 = ['#3a3a3a', 237]
+	let s:fore3 = ['#585858', 240]
+endif
+
+if exists("jay_transparent")
+	let s:transparent = jay_transparent
+else
+	let s:transparent = 0
+endif
+
 " Theme:
 let g:airline#themes#jay#palette = {}
 
-let s:mid = [s:fore2[0], s:back3[0], s:fore2[1], s:back3[1]]
-let s:bot = [s:fore3[0], s:back2[0], s:fore3[1], s:back2[1]]
+if s:transparent == 0
+	let s:mid = [s:fore2[0], s:back3[0], s:fore2[1], s:back3[1]]
+	let s:bot = [s:fore3[0], s:back2[0], s:fore3[1], s:back2[1]]
 
-let s:N1 = [s:back2[0], s:back4[0], s:back2[1], s:back4[1]]
-let s:I1 = [s:back2[0], s:green[0], s:back2[1], s:green[1]]
-let s:R1 = [s:back2[0], s:purple[0], s:back2[1], s:purple[1]]
-let s:V1 = [s:back2[0], s:blue[0], s:back2[1], s:blue[1]]
+	let s:N1 = [s:back2[0], s:back4[0], s:back2[1], s:back4[1]]
+	let s:I1 = [s:back2[0], s:green[0], s:back2[1], s:green[1]]
+	let s:R1 = [s:back2[0], s:purple[0], s:back2[1], s:purple[1]]
+	let s:V1 = [s:back2[0], s:blue[0], s:back2[1], s:blue[1]]
 
-let s:N2 = [s:red[0], s:back2[0], s:red[1], s:back2[1]]
-let s:I2 = [s:green[0], s:back2[0], s:green[1], s:back2[1]]
-let s:R2 = [s:purple[0], s:back2[0], s:purple[1], s:back2[1]]
-let s:V2 = [s:blue[0], s:back2[0], s:blue[1], s:back2[1]]
+	let s:N2 = [s:red[0], s:back2[0], s:red[1], s:back2[1]]
+	let s:I2 = [s:green[0], s:back2[0], s:green[1], s:back2[1]]
+	let s:R2 = [s:purple[0], s:back2[0], s:purple[1], s:back2[1]]
+	let s:V2 = [s:blue[0], s:back2[0], s:blue[1], s:back2[1]]
 
-let s:inac = [s:back3[0], s:back2[0], s:back3[1], s:back2[1]]
-let s:warn = [s:back2[0], s:orange[0], s:back2[1], s:orange[1], 'bold']
-let s:err = [s:back2[0], s:red[0], s:back2[1], s:red[1], 'bold']
+	let s:inac = [s:back3[0], s:back2[0], s:back3[1], s:back2[1]]
+	let s:warn = [s:back2[0], s:orange[0], s:back2[1], s:orange[1], 'bold']
+	let s:err = [s:back2[0], s:red[0], s:back2[1], s:red[1], 'bold']
 
-let s:T1 = [s:back2[0], s:back4[0], s:back2[1], s:back4[1], 'bold']
-let s:T2 = [s:back2[0], s:yellow[0], s:back2[1], s:yellow[1], 'bold']
-let s:T3 = [s:back2[0], s:orange[0], s:back2[1], s:orange[1]]
+	let s:T1 = [s:back2[0], s:back4[0], s:back2[1], s:back4[1], 'bold']
+	let s:T2 = [s:back2[0], s:yellow[0], s:back2[1], s:yellow[1], 'bold']
+	let s:T3 = [s:back2[0], s:orange[0], s:back2[1], s:orange[1]]
+else
+	let g:airline_left_sep=''
+	let g:airline_right_sep=''
+
+	let s:mid = [s:fore2[0], 'NONE', s:fore2[1], 'NONE']
+	let s:bot = [s:fore3[0], 'NONE', s:fore3[1], 'NONE']
+
+	let s:N1 = [s:back4[0], 'NONE', s:back4[1], 'NONE']
+	let s:I1 = [s:green[0], 'NONE', s:green[1], 'NONE']
+	let s:R1 = [s:purple[0], 'NONE', s:purple[1], 'NONE']
+	let s:V1 = [s:blue[0], 'NONE', s:blue[1], 'NONE']
+
+	let s:N2 = [s:red[0], 'NONE', s:red[1], 'NONE']
+	let s:I2 = [s:green[0], 'NONE', s:green[1], 'NONE']
+	let s:R2 = [s:purple[0], 'NONE', s:purple[1], 'NONE']
+	let s:V2 = [s:blue[0], 'NONE', s:blue[1], 'NONE']
+
+	let s:inac = [s:back2[0], 'NONE', s:back2[1], 'NONE']
+	let s:warn = [s:orange[0], 'NONE', s:orange[1], 'NONE', 'bold']
+	let s:err = [s:red[0], 'NONE', s:red[1], 'NONE', 'bold']
+
+	let s:T1 = [s:back4[0], 'NONE', s:back4[1], 'NONE', 'bold']
+	let s:T2 = [s:yellow[0], 'NONE', s:yellow[1], 'NONE', 'bold']
+	let s:T3 = [s:orange[0], 'NONE', s:orange[1], 'NONE']
+endif
 
 " Accents
 let g:airline#themes#jay#palette.accents = {'red': [s:red[0], '', s:red[1], '']}
@@ -82,11 +128,11 @@ let g:airline#themes#jay#palette.inactive_modified = {'airline_c': s:N2}
 
 " Tabline
 let g:airline#themes#jay#palette.tabline = {
-	\ 'airline_tabsel': s:T1,
-	\ 'airline_tabtype': s:T2,
-	\ 'airline_tabmod': s:err,
-	\ 'airline_tabmod_unsel': s:T3,
-	\ 'airline_tab_right': s:mid,
-	\ 'airline_tabsel_right': s:T1,
-	\ 'airline_tabmod_right': s:err,
-	\ 'airline_tabmod_unsel_right': s:T3}
+			\ 'airline_tabsel': s:T1,
+			\ 'airline_tabtype': s:T2,
+			\ 'airline_tabmod': s:err,
+			\ 'airline_tabmod_unsel': s:T3,
+			\ 'airline_tab_right': s:mid,
+			\ 'airline_tabsel_right': s:T1,
+			\ 'airline_tabmod_right': s:err,
+			\ 'airline_tabmod_unsel_right': s:T3}
