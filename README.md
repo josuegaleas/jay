@@ -2,12 +2,12 @@
 
 # Features
 - Same color palette for both terminal and GUI Vim
-- Light and dark modes with transparent option
+- Light and dark modes, with transparent option
 - Matching themes for [Airline](https://github.com/vim-airline/vim-airline) and [Lightline](https://github.com/itchyny/lightline.vim)
 - Support for 16 color terminals
 
 # Gallery
-Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack).
+Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot).
 
 ## Dark Mode
 ![Dark Mode](./images/sample_Dark.png?raw=true)
