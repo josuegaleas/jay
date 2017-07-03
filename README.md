@@ -1,4 +1,4 @@
-![Palette (Dark)](./images/banner.png?raw=true)
+![Palette (Dark)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/banner.png?raw=true)
 
 # Features
 - Same color palette for both terminal and GUI Vim
@@ -10,25 +10,25 @@
 Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot).
 
 ## Dark Mode
-![Dark Mode](./images/sample_Dark.png?raw=true)
+![Dark Mode](https://raw.githubusercontent.com/josuegaleas/jay-images/master/sample_Dark.png?raw=true)
 
 ## Light Mode
-![Light Mode](./images/sample_Light.png?raw=true)
+![Light Mode](https://raw.githubusercontent.com/josuegaleas/jay-images/master/sample_Light.png?raw=true)
 
 ## Airline Theme
-![Airline (Dark)](./images/statusline_Airline_Dark.png?raw=true)
+![Airline (Dark)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/statusline_Airline_Dark.png?raw=true)
 
-![Airline (Light)](./images/statusline_Airline_Light.png?raw=true)
+![Airline (Light)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/statusline_Airline_Light.png?raw=true)
 
 ## Lightline Theme
-![Lightline (Dark)](./images/statusline_Lightline_Dark.png?raw=true)
+![Lightline (Dark)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/statusline_Lightline_Dark.png?raw=true)
 
-![Lightline (Light)](./images/statusline_Lightline_Light.png?raw=true)
+![Lightline (Light)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/statusline_Lightline_Light.png?raw=true)
 
 ## Palette
-![Palette (Dark)](./images/palette_Dark.png?raw=true)
+![Palette (Dark)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/palette_Dark.png?raw=true)
 
-![Palette (Light)](./images/palette_Light.png?raw=true)
+![Palette (Light)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/palette_Light.png?raw=true)
 
 Tabulated values can be found [here](./PALETTE.md).
 
