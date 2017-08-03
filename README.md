@@ -1,4 +1,6 @@
 ![Palette (Dark)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/banner.png?raw=true)
+---
+Yet another Vim colorscheme on GitHub. Inspired by [Molokai](https://github.com/tomasr/molokai).
 
 # Features
 - Same color palette for both terminal and GUI Vim
@@ -81,6 +83,7 @@ let g:lightline = {'colorscheme': 'jay'}
 Lightline *should* detect your configuration after the above line is added.
 
 ## To Do
+- [ ] Find a better solution to [issue #4](https://github.com/josuegaleas/jay/issues/4)
 - [ ] Add more code samples to the gallery
 - [ ] Add explicit support for various plugins
 - [ ] Add support for environments that use italics
@@ -88,7 +91,6 @@ Lightline *should* detect your configuration after the above line is added.
 - [ ] Add support for 8 color terminals
 
 ## References
-- [Molokai](https://github.com/tomasr/molokai)
 - [gruvbox](https://github.com/morhetz/gruvbox)
 - [Solarized](https://github.com/altercation/vim-colors-solarized)
 - [Vimcasts, Episode 25](http://vimcasts.org/episodes/creating-colorschemes-for-vim/)

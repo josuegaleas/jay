@@ -2,7 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: July 1, 2017
+" Last Edit: August 2, 2017
 " =============================================================================
 
 " Initial Setup:
@@ -12,6 +12,7 @@ if exists("syntax_on")
 	syntax reset
 endif
 
+let s:original_background = &background "FIXME
 let g:colors_name = "jay"
 
 if exists("jay_transparent")
@@ -201,6 +202,7 @@ call s:HF('Cursor', s:back, s:fore)
 call s:HF('lCursor', s:back, s:fore)
 call s:HF('MatchParen', s:back, s:orange, s:bold)
 call s:HF('Normal', s:fore, s:back)
+let &background = s:original_background "FIXME
 call s:HF('Comment', s:back4)
 call s:HF('Constant', s:purple)
 call s:HF('Special', s:aqua)
@@ -268,6 +270,7 @@ if s:transparent == 1
 	call s:HF('lCursor', s:none, s:fore)
 	call s:HF('MatchParen', s:back, s:orange, s:bold) "FIXME
 	call s:HF('Normal', s:fore, s:none)
+	let &background = s:original_background "FIXME
 	call s:HF('Error', s:red, s:none, s:bold)
 	call s:HF('Todo', s:fore0, s:none, s:bold)
 endif
