@@ -1,12 +1,11 @@
-![Palette (Dark)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/banner.png?raw=true)
----
+# jay
 Yet another Vim colorscheme on GitHub. Inspired by [Molokai](https://github.com/tomasr/molokai).
 
 # Features
 - Same color palette for both terminal and GUI Vim
 - Light and dark modes, with transparent option
 - Matching themes for [Airline](https://github.com/vim-airline/vim-airline) and [Lightline](https://github.com/itchyny/lightline.vim)
-- Support for 16 color terminals
+- Support for 256 and 16 color terminals
 
 # Gallery
 Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot).
