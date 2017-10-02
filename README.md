@@ -34,7 +34,7 @@ Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack). Addit
 Tabulated values can be found [here](./PALETTE.md).
 
 # Installation
-## 1. Installing the Bundle
+## 1) Installing the Bundle
 ### Manually
 - Download this repository and unzip its contents
 - Copy or move the contents into your `.vim/` directory (`vimfiles\` on Windows)
@@ -49,7 +49,7 @@ Tabulated values can be found [here](./PALETTE.md).
 	git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
 	```
 
-## 2. Updating `.vimrc`
+## 2) Updating `.vimrc`
 ### Dark Mode
 Add the following lines to your `.vimrc` file:
 ```Vim script
@@ -81,7 +81,7 @@ let g:lightline = {'colorscheme': 'jay'}
 ```
 Lightline *should* detect your configuration after the above line is added.
 
-## To Do
+# TODO
 - [ ] Find a better solution to [issue #4](https://github.com/josuegaleas/jay/issues/4)
 - [ ] Add more code samples to the gallery
 - [ ] Add explicit support for various plugins
@@ -89,12 +89,12 @@ Lightline *should* detect your configuration after the above line is added.
 - [ ] Improve support for 16 color terminals
 - [ ] Add support for 8 color terminals
 
-## References
+# References
 - [gruvbox](https://github.com/morhetz/gruvbox)
 - [Solarized](https://github.com/altercation/vim-colors-solarized)
 - [Vimcasts, Episode 25](http://vimcasts.org/episodes/creating-colorschemes-for-vim/)
 
-## Tools
+# Tools
 - [Xterm Color Table](https://github.com/guns/xterm-color-table.vim)
 - [Colorizer](https://github.com/chrisbra/Colorizer)
 - [HiLinkTrace](https://github.com/gerw/vim-HiLinkTrace)
@@ -103,5 +103,5 @@ Lightline *should* detect your configuration after the above line is added.
 - `:highlight`
 - `:source $VIMRUNTIME/syntax/hitest.vim`
 
-## Credit
+# Credit
 - [FliiFe](https://github.com/FliiFe) for motivating me to make the transparent option.

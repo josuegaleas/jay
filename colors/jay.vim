@@ -159,8 +159,8 @@ call s:HF('SpecialKey', s:back3)
 call s:HF('NonText', s:back3)
 call s:HF('Directory', s:green)
 call s:HF('ErrorMsg', s:red) "Command Error
-call s:HF('IncSearch', s:fore, s:back4, s:bold)
-call s:HF('Search', s:fore2, s:back3, s:bold_underline)
+call s:HF('IncSearch', s:fore, s:back4)
+call s:HF('Search', s:fore2, s:back3, s:bold)
 call s:HF('MoreMsg', s:blue) "Command More
 call s:HF('ModeMsg', s:fore)
 call s:HF('LineNr', s:back4, s:back2)
