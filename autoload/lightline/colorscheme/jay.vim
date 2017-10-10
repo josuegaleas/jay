@@ -1,7 +1,8 @@
 " =============================================================================
 " Author: josuegaleas
 " License: MIT License
-" Last Change: July 1, 2017
+" Source: https://github.com/josuegaleas/jay
+" Last Change: October 10, 2017
 " =============================================================================
 
 " Palette:
@@ -56,11 +57,6 @@ if s:transparent == 0
 	let s:p.inactive.left = [ [ s:back3, s:back2 ], [ s:back3, s:back2 ] ]
 	let s:p.inactive.middle = [ [ s:back3, s:back2 ] ]
 	let s:p.inactive.right = copy(s:p.inactive.left)
-
-	let s:p.tabline.left = [ [ s:fore2, s:back3 ] ]
-	let s:p.tabline.tabsel = [ [ s:back2, s:back4 ] ]
-	let s:p.tabline.middle = copy(s:p.normal.middle)
-	let s:p.tabline.right = copy(s:p.normal.right)
 else
 	let s:p.normal.left = [ [ s:back4, s:none ], [ s:fore2, s:none ] ]
 	let s:p.normal.middle = [ [ s:fore3, s:none ] ]
@@ -78,11 +74,11 @@ else
 	let s:p.inactive.left = [ [ s:back2, s:none ], [ s:back2, s:none ] ]
 	let s:p.inactive.middle = [ [ s:back2, s:none ] ]
 	let s:p.inactive.right = copy(s:p.inactive.left)
-
-	let s:p.tabline.left = [ [ s:fore2, s:none ] ]
-	let s:p.tabline.tabsel = [ [ s:back4, s:none ] ]
-	let s:p.tabline.middle = copy(s:p.normal.middle)
-	let s:p.tabline.right = copy(s:p.normal.right)
 endif
+
+let s:p.tabline.left = copy(s:p.normal.middle)
+let s:p.tabline.tabsel = copy(s:p.normal.left)
+let s:p.tabline.middle = copy(s:p.inactive.middle)
+let s:p.tabline.right = copy(s:p.tabline.tabsel)
 
 let g:lightline#colorscheme#jay#palette = lightline#colorscheme#flatten(s:p)

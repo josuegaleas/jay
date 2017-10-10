@@ -1,7 +1,8 @@
 " =============================================================================
 " Author: josuegaleas
 " License: MIT License
-" Last Change: July 1, 2017
+" Source: https://github.com/josuegaleas/jay
+" Last Change: October 10, 2017
 " =============================================================================
 
 " Palette:
@@ -57,10 +58,7 @@ if s:transparent == 0
 	let s:inac = [s:back3[0], s:back2[0], s:back3[1], s:back2[1]]
 	let s:warn = [s:back2[0], s:orange[0], s:back2[1], s:orange[1], 'bold']
 	let s:err = [s:back2[0], s:red[0], s:back2[1], s:red[1], 'bold']
-
-	let s:T1 = [s:back2[0], s:back4[0], s:back2[1], s:back4[1], 'bold']
-	let s:T2 = [s:back2[0], s:yellow[0], s:back2[1], s:yellow[1], 'bold']
-	let s:T3 = [s:back2[0], s:orange[0], s:back2[1], s:orange[1]]
+	let s:tab = [s:back2[0], s:back4[0], s:back2[1], s:back4[1], 'bold']
 else
 	let g:airline_left_sep=''
 	let g:airline_right_sep=''
@@ -81,10 +79,7 @@ else
 	let s:inac = [s:back2[0], 'NONE', s:back2[1], 'NONE']
 	let s:warn = [s:orange[0], 'NONE', s:orange[1], 'NONE', 'bold']
 	let s:err = [s:red[0], 'NONE', s:red[1], 'NONE', 'bold']
-
-	let s:T1 = [s:back4[0], 'NONE', s:back4[1], 'NONE', 'bold']
-	let s:T2 = [s:yellow[0], 'NONE', s:yellow[1], 'NONE', 'bold']
-	let s:T3 = [s:orange[0], 'NONE', s:orange[1], 'NONE']
+	let s:tab = [s:back4[0], 'NONE', s:back4[1], 'NONE', 'bold']
 endif
 
 " Accents
@@ -128,11 +123,12 @@ let g:airline#themes#jay#palette.inactive_modified = {'airline_c': s:N2}
 
 " Tabline
 let g:airline#themes#jay#palette.tabline = {
-			\ 'airline_tabsel': s:T1,
-			\ 'airline_tabtype': s:T2,
+			\ 'airline_tab': s:bot,
+			\ 'airline_tabsel': s:tab,
+			\ 'airline_tabtype': s:tab,
 			\ 'airline_tabmod': s:err,
-			\ 'airline_tabmod_unsel': s:T3,
-			\ 'airline_tab_right': s:mid,
-			\ 'airline_tabsel_right': s:T1,
+			\ 'airline_tabhid': s:inac,
+			\ 'airline_tab_right': s:bot,
+			\ 'airline_tabsel_right': s:tab,
 			\ 'airline_tabmod_right': s:err,
-			\ 'airline_tabmod_unsel_right': s:T3}
+			\ 'airline_tabhid_right': s:inac}

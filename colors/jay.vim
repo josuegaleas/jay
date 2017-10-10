@@ -2,7 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: August 2, 2017
+" Last Edit: October 2, 2017
 " =============================================================================
 
 " Initial Setup:
