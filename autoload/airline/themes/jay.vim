@@ -2,7 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Change: October 10, 2017
+" Last Change: October 11, 2017
 " =============================================================================
 
 " Palette:
@@ -37,9 +37,6 @@ if exists("jay_transparent")
 else
 	let s:transparent = 0
 endif
-
-" Theme:
-let g:airline#themes#jay#palette = {}
 
 if s:transparent == 0
 	let s:mid = [s:fore2[0], s:back3[0], s:fore2[1], s:back3[1]]
@@ -82,8 +79,17 @@ else
 	let s:tab = [s:back4[0], 'NONE', s:back4[1], 'NONE', 'bold']
 endif
 
+" Theme:
+let g:airline#themes#jay#palette = {}
+
 " Accents
-let g:airline#themes#jay#palette.accents = {'red': [s:red[0], '', s:red[1], '']}
+let g:airline#themes#jay#palette.accents = {
+			\ 'red': [s:red[0], '', s:red[1], ''],
+			\ 'green': [s:green[0], '', s:green[1], ''],
+			\ 'blue': [s:blue[0], '', s:blue[1], ''],
+			\ 'yellow': [s:yellow[0], '', s:yellow[1], ''],
+			\ 'orange': [s:orange[0], '', s:orange[1], ''],
+			\ 'purple': [s:purple[0], '', s:purple[1], '']}
 
 " Normal
 let g:airline#themes#jay#palette.normal = airline#themes#generate_color_map(s:N1, s:mid, s:bot)

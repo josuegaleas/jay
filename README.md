@@ -105,4 +105,4 @@ Lightline *should* detect your configuration after the above line is added.
 
 # Credit
 - [FliiFe](https://github.com/FliiFe) for motivating me to make the transparent option.
-- [ksergy](https://github.com/ksergey) for motivating me to improve the tabline of the Airline and Lightline themes.
+- [ksergey](https://github.com/ksergey) for motivating me to improve the tabline of the Airline and Lightline themes.
