@@ -2,7 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: October 2, 2017
+" Last Edit: January 4, 2018
 " =============================================================================
 
 " Initial Setup:
@@ -43,10 +43,11 @@ let s:fore = ['#dadada', 253]
 let s:fore2 = ['#bcbcbc', 250]
 let s:fore3 = ['#9e9e9e', 247]
 let s:fore4 = ['#808080', 244]
-" TODO, Debugging Colors
-let s:unknown = ['#0000ff', 12]
-let s:unknown2 = ['#ffff00', 11]
+" Debugging Colors
+let s:unknown = ['#ff00ff', 201]
+let s:unknown2 = ['#ffff00', 226]
 " Emphasis
+let s:plain = 'none,'
 let s:bold = 'bold,'
 let s:underline = 'underline,'
 let s:bold_underline = 'bold,underline,'
@@ -74,9 +75,9 @@ if &background == "light"
 	let s:fore4 = ['#767676', 243]
 endif
 
-if &t_Co == 16
+if &t_Co <= 16
 	let s:red[1] = 1
-	let s:orange[1] = 7
+	let s:orange[1] = 7 "Not actually orange, it's gray FIXME
 	let s:yellow[1] = 3
 	let s:green[1] = 2
 	let s:aqua[1] = 6
@@ -95,7 +96,7 @@ if &t_Co == 16
 
 	if &background == "light"
 		let s:red[1] = 1
-		let s:orange[1] = 7
+		let s:orange[1] = 7 "Not actually orange, it's gray FIXME
 		let s:yellow[1] = 3
 		let s:green[1] = 2
 		let s:aqua[1] = 6
@@ -114,33 +115,15 @@ if &t_Co == 16
 	endif
 endif
 
-" Highlighting Function:
-" Heavily based on gruvbox's highlighting function,
-" which can be found at: https://github.com/morhetz/gruvbox/blob/master/colors/gruvbox.vim#L346
-function! s:HF(group, fg, ...)
-	" Foreground
-	let fg = a:fg
-
-	" Background
-	if a:0 >= 1
-		let bg = a:1
-	else
-		let bg = s:none
-	endif
-
-	" Emphasis
-	if a:0 >= 2
-		let emstr = a:2
-	else
-		let emstr = 'none,'
-	endif
-
-	" Highlight
+" Highlighting Functions:
+" Based on gruvbox's highlighting function, which can be found at:
+" https://github.com/morhetz/gruvbox/blob/master/colors/gruvbox.vim#L374
+function! s:HF(group, fg, bg, em)
 	execute join(['hi', a:group,
-				\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
-				\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
-				\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2],
-				\ 'term=' . emstr[:-2]], ' ')
+				\ 'guifg=' . a:fg[0], 'ctermfg=' . a:fg[1],
+				\ 'guibg=' . a:bg[0], 'ctermbg=' . a:bg[1],
+				\ 'gui=' . a:em[:-2], 'cterm=' . a:em[:-2],
+				\ 'term=' . a:em[:-2]], ' ')
 endfunction
 
 if has("spell")
@@ -155,32 +138,32 @@ if has("spell")
 endif
 
 " Highlighting:
-call s:HF('SpecialKey', s:back3)
-call s:HF('NonText', s:back3)
-call s:HF('Directory', s:green)
-call s:HF('ErrorMsg', s:red) "Command Error
-call s:HF('IncSearch', s:fore, s:back4)
-call s:HF('Search', s:fore2, s:back3, s:bold)
-call s:HF('MoreMsg', s:blue) "Command More
-call s:HF('ModeMsg', s:fore)
-call s:HF('LineNr', s:back4, s:back2)
-call s:HF('CursorLineNr', s:orange)
-call s:HF('Question', s:green) "Command Question
-call s:HF('Statusline', s:fore3, s:back2)
-call s:HF('StatuslineNC', s:back3, s:back2)
+call s:HF('SpecialKey', s:back3, s:none, s:plain)
+call s:HF('NonText', s:back3, s:none, s:plain)
+call s:HF('Directory', s:green, s:none, s:plain)
+call s:HF('ErrorMsg', s:red, s:none, s:plain) "Command Error
+call s:HF('IncSearch', s:fore, s:back4, s:bold)
+call s:HF('Search', s:fore2, s:back3, s:plain)
+call s:HF('MoreMsg', s:blue, s:none, s:plain) "Command More
+call s:HF('ModeMsg', s:fore, s:none, s:plain)
+call s:HF('LineNr', s:back4, s:back2, s:plain)
+call s:HF('CursorLineNr', s:orange, s:none, s:plain)
+call s:HF('Question', s:green, s:none, s:plain) "Command Question
+call s:HF('Statusline', s:fore3, s:back2, s:plain)
+call s:HF('StatuslineNC', s:back3, s:back2, s:plain)
 call s:HF('VertSplit', s:back3, s:back0, s:bold)
-call s:HF('Title', s:red)
-call s:HF('Visual', s:none, s:back3)
-call s:HF('VisualNOS', s:none, s:back3)
-call s:HF('WarningMsg', s:orange) "Command Warning
-call s:HF('WildMenu', s:aqua, s:back0)
-call s:HF('Folded', s:back3, s:back0)
-call s:HF('FoldColumn', s:blue, s:back0)
-call s:HF('DiffAdd', s:green, s:back2)
-call s:HF('DiffChange', s:yellow, s:back2)
-call s:HF('DiffDelete', s:red, s:back2)
+call s:HF('Title', s:red, s:none, s:plain)
+call s:HF('Visual', s:none, s:back3, s:plain)
+call s:HF('VisualNOS', s:none, s:back3, s:plain)
+call s:HF('WarningMsg', s:orange, s:none, s:plain) "Command Warning
+call s:HF('WildMenu', s:aqua, s:back0, s:plain)
+call s:HF('Folded', s:back3, s:back0, s:plain)
+call s:HF('FoldColumn', s:blue, s:back0, s:plain)
+call s:HF('DiffAdd', s:green, s:back2, s:plain)
+call s:HF('DiffChange', s:yellow, s:back2, s:plain)
+call s:HF('DiffDelete', s:red, s:back2, s:plain)
 call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
-call s:HF('SignColumn', s:none, s:back0)
+call s:HF('SignColumn', s:none, s:back0, s:plain)
 call s:HF('Conceal', s:unknown, s:unknown2, s:bold_underline) "FIXME
 if has("spell")
 	call s:HFS('SpellBad', s:red)
@@ -188,88 +171,88 @@ if has("spell")
 	call s:HFS('SpellRare', s:purple)
 	call s:HFS('SpellLocal', s:green)
 endif
-call s:HF('Pmenu', s:aqua, s:back0)
-call s:HF('PmenuSel', s:fore, s:back2)
-call s:HF('PmenuSbar', s:none, s:back2)
-call s:HF('PmenuThumb', s:none, s:back3)
-call s:HF('TabLine', s:fore2, s:back3)
+call s:HF('Pmenu', s:aqua, s:back0, s:plain)
+call s:HF('PmenuSel', s:fore, s:back2, s:plain)
+call s:HF('PmenuSbar', s:none, s:back2, s:plain)
+call s:HF('PmenuThumb', s:none, s:back3, s:plain)
+call s:HF('TabLine', s:fore2, s:back3, s:plain)
 call s:HF('TabLineSel', s:back2, s:back4, s:bold)
-call s:HF('TabLineFill', s:none, s:back2)
-call s:HF('CursorColumn', s:none, s:back2)
-call s:HF('CursorLine', s:none, s:back2)
-call s:HF('ColorColumn', s:none, s:back2)
-call s:HF('Cursor', s:back, s:fore)
-call s:HF('lCursor', s:back, s:fore)
+call s:HF('TabLineFill', s:none, s:back2, s:plain)
+call s:HF('CursorColumn', s:none, s:back2, s:plain)
+call s:HF('CursorLine', s:none, s:back2, s:plain)
+call s:HF('ColorColumn', s:none, s:back2, s:plain)
+call s:HF('Cursor', s:back, s:fore, s:plain)
+call s:HF('lCursor', s:back, s:fore, s:plain)
 call s:HF('MatchParen', s:back, s:orange, s:bold)
-call s:HF('Normal', s:fore, s:back)
+call s:HF('Normal', s:fore, s:back, s:plain)
 let &background = s:original_background "FIXME
-call s:HF('Comment', s:back4)
-call s:HF('Constant', s:purple)
-call s:HF('Special', s:aqua)
-call s:HF('Identifier', s:orange)
-call s:HF('Statement', s:red)
-call s:HF('PreProc', s:green)
-call s:HF('Type', s:aqua)
+call s:HF('Comment', s:back4, s:none, s:plain)
+call s:HF('Constant', s:purple, s:none, s:plain)
+call s:HF('Special', s:aqua, s:none, s:plain)
+call s:HF('Identifier', s:orange, s:none, s:plain)
+call s:HF('Statement', s:red, s:none, s:plain)
+call s:HF('PreProc', s:green, s:none, s:plain)
+call s:HF('Type', s:aqua, s:none, s:plain)
 call s:HF('Underlined', s:blue, s:none, s:underline)
-call s:HF('Ignore', s:fore3)
+call s:HF('Ignore', s:fore3, s:none, s:plain)
 call s:HF('Error', s:red, s:back0, s:bold)
 call s:HF('Todo', s:fore0, s:back0, s:bold)
-call s:HF('String', s:yellow)
-call s:HF('Character', s:yellow)
-call s:HF('Number', s:purple)
-call s:HF('Boolean', s:purple)
-call s:HF('Float', s:purple)
-call s:HF('Function', s:green)
-call s:HF('Conditional', s:red)
-call s:HF('Repeat', s:red)
-call s:HF('Label', s:yellow)
-call s:HF('Operator', s:red)
-call s:HF('Keyword', s:red)
-call s:HF('Exception', s:green)
-call s:HF('Define', s:orange)
-call s:HF('Macro', s:yellow)
-call s:HF('PreCondit', s:green)
-call s:HF('StorageClass', s:orange)
-call s:HF('Structure', s:orange)
-call s:HF('Typedef', s:aqua)
-call s:HF('Tag', s:red)
-call s:HF('SpecialChar', s:red)
-call s:HF('Delimiter', s:fore4)
-call s:HF('SpecialComment', s:fore3)
+call s:HF('String', s:yellow, s:none, s:plain)
+call s:HF('Character', s:yellow, s:none, s:plain)
+call s:HF('Number', s:purple, s:none, s:plain)
+call s:HF('Boolean', s:purple, s:none, s:plain)
+call s:HF('Float', s:purple, s:none, s:plain)
+call s:HF('Function', s:green, s:none, s:plain)
+call s:HF('Conditional', s:red, s:none, s:plain)
+call s:HF('Repeat', s:red, s:none, s:plain)
+call s:HF('Label', s:yellow, s:none, s:plain)
+call s:HF('Operator', s:red, s:none, s:plain)
+call s:HF('Keyword', s:red, s:none, s:plain)
+call s:HF('Exception', s:green, s:none, s:plain)
+call s:HF('Define', s:orange, s:none, s:plain)
+call s:HF('Macro', s:yellow, s:none, s:plain)
+call s:HF('PreCondit', s:green, s:none, s:plain)
+call s:HF('StorageClass', s:orange, s:none, s:plain)
+call s:HF('Structure', s:orange, s:none, s:plain)
+call s:HF('Typedef', s:aqua, s:none, s:plain)
+call s:HF('Tag', s:red, s:none, s:plain)
+call s:HF('SpecialChar', s:red, s:none, s:plain)
+call s:HF('Delimiter', s:fore4, s:none, s:plain)
+call s:HF('SpecialComment', s:fore3, s:none, s:plain)
 call s:HF('Debug', s:unknown, s:unknown2, s:bold_underline) "FIXME
 
 " Transparency:
 if s:transparent == 1
 	call s:HF('IncSearch', s:fore, s:none, s:bold)
-	call s:HF('Search', s:fore2, s:none, s:bold_underline)
-	call s:HF('LineNr', s:back4, s:none)
-	call s:HF('Statusline', s:fore3, s:none)
-	call s:HF('StatuslineNC', s:back3, s:none)
+	call s:HF('Search', s:fore2, s:none, s:underline)
+	call s:HF('LineNr', s:back4, s:none, s:plain)
+	call s:HF('Statusline', s:fore3, s:none, s:plain)
+	call s:HF('StatuslineNC', s:back3, s:none, s:plain)
 	call s:HF('VertSplit', s:back3, s:none, s:bold)
 	call s:HF('Visual', s:none, s:none, s:bold_underline)
 	call s:HF('VisualNOS', s:none, s:none, s:bold_underline)
-	call s:HF('WildMenu', s:aqua, s:none)
-	call s:HF('Folded', s:back3, s:none)
-	call s:HF('FoldColumn', s:blue, s:none)
+	call s:HF('WildMenu', s:aqua, s:none, s:plain)
+	call s:HF('Folded', s:back3, s:none, s:plain)
+	call s:HF('FoldColumn', s:blue, s:none, s:plain)
 	call s:HF('DiffAdd', s:green, s:none, s:bold)
 	call s:HF('DiffChange', s:yellow, s:none, s:bold)
 	call s:HF('DiffDelete', s:red, s:none, s:bold)
 	call s:HF('DiffText', s:blue, s:none, s:bold_underline)
-	call s:HF('SignColumn', s:none, s:none)
-	call s:HF('Pmenu', s:aqua, s:none)
-	call s:HF('PmenuSel', s:fore, s:none)
-	call s:HF('PmenuSbar', s:none, s:none)
-	call s:HF('PmenuThumb', s:none, s:none)
-	call s:HF('TabLine', s:fore2, s:none)
+	call s:HF('SignColumn', s:none, s:none, s:plain)
+	call s:HF('Pmenu', s:aqua, s:none, s:plain)
+	call s:HF('PmenuSel', s:fore, s:none, s:plain)
+	call s:HF('PmenuSbar', s:none, s:none, s:plain)
+	call s:HF('PmenuThumb', s:none, s:none, s:plain)
+	call s:HF('TabLine', s:fore2, s:none, s:plain)
 	call s:HF('TabLineSel', s:back4, s:none, s:bold)
-	call s:HF('TabLineFill', s:none, s:none)
+	call s:HF('TabLineFill', s:none, s:none, s:plain)
 	call s:HF('CursorColumn', s:none, s:none, s:underline)
 	call s:HF('CursorLine', s:none, s:none, s:underline)
 	call s:HF('ColorColumn', s:none, s:none, s:underline)
-	call s:HF('Cursor', s:none, s:fore)
-	call s:HF('lCursor', s:none, s:fore)
-	call s:HF('MatchParen', s:back, s:orange, s:bold) "FIXME
-	call s:HF('Normal', s:fore, s:none)
+	call s:HF('Cursor', s:none, s:fore, s:plain)
+	call s:HF('lCursor', s:none, s:fore, s:plain)
+	call s:HF('MatchParen', s:back, s:orange, s:bold)
+	call s:HF('Normal', s:fore, s:none, s:plain)
 	let &background = s:original_background "FIXME
 	call s:HF('Error', s:red, s:none, s:bold)
 	call s:HF('Todo', s:fore0, s:none, s:bold)
