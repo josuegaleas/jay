@@ -2,7 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: January 4, 2018
+" Last Edit: January 11, 2018
 " =============================================================================
 
 " Initial Setup:
@@ -127,13 +127,13 @@ function! s:HF(group, fg, bg, em)
 endfunction
 
 if has("spell")
-	function! s:HFS(group, sp)
+	function! s:HFS(group, sp, bg, em)
 		execute join(['hi', a:group,
 					\ 'guisp=' . a:sp[0],
 					\ 'guifg=NONE ctermfg=' . a:sp[1],
-					\ 'guibg=NONE ctermbg=' . s:back3[1],
-					\ 'gui=bold,undercurl cterm=bold,undercurl',
-					\ 'term=bold,undercurl '])
+					\ 'guibg=NONE ctermbg=' . a:bg[1],
+					\ 'gui=bold,undercurl cterm=' . a:em[:-2],
+					\ 'term=' . a:em[:-2]], ' ')
 	endfunction
 endif
 
@@ -166,10 +166,10 @@ call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
 call s:HF('SignColumn', s:none, s:back0, s:plain)
 call s:HF('Conceal', s:unknown, s:unknown2, s:bold_underline) "FIXME
 if has("spell")
-	call s:HFS('SpellBad', s:red)
-	call s:HFS('SpellCap', s:orange)
-	call s:HFS('SpellRare', s:purple)
-	call s:HFS('SpellLocal', s:green)
+	call s:HFS('SpellBad', s:red, s:back0, s:bold)
+	call s:HFS('SpellCap', s:orange, s:back0, s:bold)
+	call s:HFS('SpellRare', s:purple, s:back0, s:bold)
+	call s:HFS('SpellLocal', s:green, s:back0, s:bold)
 endif
 call s:HF('Pmenu', s:aqua, s:back0, s:plain)
 call s:HF('PmenuSel', s:fore, s:back2, s:plain)
@@ -181,6 +181,8 @@ call s:HF('TabLineFill', s:none, s:back2, s:plain)
 call s:HF('CursorColumn', s:none, s:back2, s:plain)
 call s:HF('CursorLine', s:none, s:back2, s:plain)
 call s:HF('ColorColumn', s:none, s:back2, s:plain)
+call s:HF('StatusLineTerm', s:back, s:green, s:plain)
+call s:HF('StatusLineTermNC', s:green, s:back2, s:plain)
 call s:HF('Cursor', s:back, s:fore, s:plain)
 call s:HF('lCursor', s:back, s:fore, s:plain)
 call s:HF('MatchParen', s:back, s:orange, s:bold)
@@ -239,6 +241,12 @@ if s:transparent == 1
 	call s:HF('DiffDelete', s:red, s:none, s:bold)
 	call s:HF('DiffText', s:blue, s:none, s:bold_underline)
 	call s:HF('SignColumn', s:none, s:none, s:plain)
+	if has("spell")
+		call s:HFS('SpellBad', s:red, s:none, s:bold_underline)
+		call s:HFS('SpellCap', s:orange, s:none, s:bold_underline)
+		call s:HFS('SpellRare', s:purple, s:none, s:bold_underline)
+		call s:HFS('SpellLocal', s:green, s:none, s:bold_underline)
+	endif
 	call s:HF('Pmenu', s:aqua, s:none, s:plain)
 	call s:HF('PmenuSel', s:fore, s:none, s:plain)
 	call s:HF('PmenuSbar', s:none, s:none, s:plain)
@@ -249,9 +257,11 @@ if s:transparent == 1
 	call s:HF('CursorColumn', s:none, s:none, s:underline)
 	call s:HF('CursorLine', s:none, s:none, s:underline)
 	call s:HF('ColorColumn', s:none, s:none, s:underline)
+	call s:HF('StatusLineTerm', s:green, s:none, s:plain)
+	call s:HF('StatusLineTermNC', s:back3, s:none, s:plain)
 	call s:HF('Cursor', s:none, s:fore, s:plain)
 	call s:HF('lCursor', s:none, s:fore, s:plain)
-	call s:HF('MatchParen', s:back, s:orange, s:bold)
+	call s:HF('MatchParen', s:orange, s:none, s:bold)
 	call s:HF('Normal', s:fore, s:none, s:plain)
 	let &background = s:original_background "FIXME
 	call s:HF('Error', s:red, s:none, s:bold)
