@@ -1,14 +1,14 @@
 # jay
 Yet another Vim colorscheme on GitHub. Inspired by [Molokai](https://github.com/tomasr/molokai).
 
-# Features
+## Features
 - Same color palette for both terminal and GUI Vim
 - Light and dark modes, with transparent option
 - Matching themes for [Airline](https://github.com/vim-airline/vim-airline) and [Lightline](https://github.com/itchyny/lightline.vim)
 - Support for 256, 16, and 8 color terminals
 
 # Gallery
-Font used in screenshots is [Hack](https://github.com/chrissimpkins/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot).
+Font used in screenshots is [Hack](https://github.com/source-foundry/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot). For more examples in different languages, visit 'jay' on [colorswat.ch](http://colorswat.ch/vim/schemes/jay).
 
 ## Dark Mode
 ![Dark Mode](https://raw.githubusercontent.com/josuegaleas/jay-images/master/sample_Dark.png?raw=true)
@@ -37,14 +37,14 @@ Tabulated values can be found [here](./PALETTE.md).
 ## 1) Installing the Bundle
 ### Manually
 - Download this repository and unzip its contents
-- Copy or move the contents into your `.vim/` directory (`vimfiles\` on Windows)
+- Copy or move the contents into your `.vim/` directory (possibly `vimfiles\` on Windows)
 
 ### [vim-plug](https://github.com/junegunn/vim-plug) (or similar plugin manager)
 - Add `Plug 'josuegaleas/jay'` to your `.vimrc` file
 - Restart Vim and use `:PlugInstall` to install
 
 ### [pathogen.vim](https://github.com/tpope/vim-pathogen)
-- Clone this repository into your `.vim/bundles/` directory (`vimfiles\bundles\` on Windows) with:
+- Clone this repository into your `.vim/bundles/` directory (possibly `vimfiles\bundles\` on Windows) with:
 	```Shell
 	git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
 	```
@@ -83,11 +83,8 @@ Lightline *should* detect your configuration after the above line is added.
 
 # TODO
 - [ ] Find a better solution to [issue #4](https://github.com/josuegaleas/jay/issues/4)
-- [ ] Add more code samples to the gallery
 - [ ] Add explicit support for various plugins
 - [ ] Add support for environments that use italics
-- [x] Improve support for 16 color terminals
-- [x] Add support for 8 color terminals
 
 # References
 - [gruvbox](https://github.com/morhetz/gruvbox)
