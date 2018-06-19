@@ -37,22 +37,22 @@ Tabulated values can be found [here](./PALETTE.md).
 ## 1) Installing the Bundle
 ### Manually
 - Download this repository and unzip its contents
-- Copy or move the contents into your `.vim/` directory (possibly `vimfiles\` on Windows)
+- Copy or move the contents into your `.vim/` directory (possibly `vimfiles` on Windows)
 
 ### [vim-plug](https://github.com/junegunn/vim-plug) (or similar plugin manager)
 - Add `Plug 'josuegaleas/jay'` to your `.vimrc` file
 - Restart Vim and use `:PlugInstall` to install
 
 ### [pathogen.vim](https://github.com/tpope/vim-pathogen)
-- Clone this repository into your `.vim/bundles/` directory (possibly `vimfiles\bundles\` on Windows) with:
-	```Shell
-	git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
-	```
+Clone this repository into your `.vim/bundle/` directory (possibly `vimfiles\bundle` on Windows) with:
+```bash
+git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
+```
 
 ## 2) Updating `.vimrc`
 ### Dark Mode
 Add the following lines to your `.vimrc` file:
-```Vim script
+```viml
 syntax enable
 set background=dark
 colorscheme jay
@@ -60,7 +60,7 @@ colorscheme jay
 
 ### Light Mode
 Add the following lines to your `.vimrc` file:
-```Vim script
+```viml
 syntax enable
 set background=light
 colorscheme jay
@@ -68,7 +68,7 @@ colorscheme jay
 
 ### Transparent Option
 Add the following line anywhere **before** `colorscheme jay` to your `.vimrc` file:
-```Vim script
+```viml
 let jay_transparent=1
 ```
 
@@ -76,13 +76,13 @@ let jay_transparent=1
 Airline *should* detect your configuration without further instruction.
 
 For Lightline, add the following line anywhere **after** `colorscheme jay` to your `.vimrc` file:
-```Vim script
+```viml
 let g:lightline = {'colorscheme': 'jay'}
 ```
 Lightline *should* detect your configuration after the above line is added.
 
 # TODO
-- [ ] Find a better solution to [issue #4](https://github.com/josuegaleas/jay/issues/4)
+- [ ] Find a better solution to issue [#4](https://github.com/josuegaleas/jay/issues/4)
 - [ ] Add explicit support for various plugins
 - [ ] Add support for environments that use italics
 

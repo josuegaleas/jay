@@ -2,7 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Change: October 10, 2017
+" Last Change: 2017.10.10
 " =============================================================================
 
 " Palette:

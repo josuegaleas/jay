@@ -2,7 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Edit: January 11, 2018
+" Last Edit: 2018.06.09
 " =============================================================================
 
 " Initial Setup:
@@ -164,7 +164,7 @@ call s:HF('DiffChange', s:yellow, s:back2, s:plain)
 call s:HF('DiffDelete', s:red, s:back2, s:plain)
 call s:HF('DiffText', s:blue, s:back2, s:bold_underline)
 call s:HF('SignColumn', s:none, s:back0, s:plain)
-call s:HF('Conceal', s:unknown, s:unknown2, s:bold_underline) "FIXME
+call s:HF('Conceal', s:fore0, s:back0, s:bold)
 if has("spell")
 	call s:HFS('SpellBad', s:red, s:back0, s:bold)
 	call s:HFS('SpellCap', s:orange, s:back0, s:bold)
@@ -241,6 +241,7 @@ if s:transparent == 1
 	call s:HF('DiffDelete', s:red, s:none, s:bold)
 	call s:HF('DiffText', s:blue, s:none, s:bold_underline)
 	call s:HF('SignColumn', s:none, s:none, s:plain)
+	call s:HF('Conceal', s:fore0, s:none, s:bold)
 	if has("spell")
 		call s:HFS('SpellBad', s:red, s:none, s:bold_underline)
 		call s:HFS('SpellCap', s:orange, s:none, s:bold_underline)

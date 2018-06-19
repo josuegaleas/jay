@@ -2,7 +2,7 @@
 " Author: josuegaleas
 " License: MIT License
 " Source: https://github.com/josuegaleas/jay
-" Last Change: October 11, 2017
+" Last Change: 2018.06.07
 " =============================================================================
 
 " Palette:
@@ -129,12 +129,12 @@ let g:airline#themes#jay#palette.inactive_modified = {'airline_c': s:N2}
 
 " Tabline
 let g:airline#themes#jay#palette.tabline = {
+			\ 'airline_tablabel': s:tab,
 			\ 'airline_tab': s:bot,
-			\ 'airline_tabsel': s:tab,
-			\ 'airline_tabtype': s:tab,
+			\ 'airline_tabsel': s:mid,
 			\ 'airline_tabmod': s:err,
 			\ 'airline_tabhid': s:inac,
 			\ 'airline_tab_right': s:bot,
-			\ 'airline_tabsel_right': s:tab,
+			\ 'airline_tabsel_right': s:mid,
 			\ 'airline_tabmod_right': s:err,
 			\ 'airline_tabhid_right': s:inac}
