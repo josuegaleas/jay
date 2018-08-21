@@ -3,12 +3,16 @@ Yet another Vim colorscheme on GitHub. Inspired by [Molokai](https://github.com/
 
 ## Features
 - Same color palette for both terminal and GUI Vim
-- Light and dark modes, with transparent option
+- Light and dark modes, with a transparent option
 - Matching themes for [Airline](https://github.com/vim-airline/vim-airline) and [Lightline](https://github.com/itchyny/lightline.vim)
 - Support for 256, 16, and 8 color terminals
+- Explicitly supported plugins: None so far!
+	- Want a certain plugin themed? Feel free to open an issue!
 
 # Gallery
-Font used in screenshots is [Hack](https://github.com/source-foundry/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot). For more examples in different languages, visit 'jay' on [colorswat.ch](http://colorswat.ch/vim/schemes/jay).
+Font used in screenshots is [Hack](https://github.com/source-foundry/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot).
+
+For more examples in different languages, visit 'jay' on [colorswat.ch](http://colorswat.ch/vim/schemes/jay).
 
 ## Dark Mode
 ![Dark Mode](https://raw.githubusercontent.com/josuegaleas/jay-images/master/sample_Dark.png?raw=true)
@@ -27,26 +31,26 @@ Font used in screenshots is [Hack](https://github.com/source-foundry/Hack). Addi
 ![Lightline (Light)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/statusline_Lightline_Light.png?raw=true)
 
 ## Palette
+Tabulated values can be found [here](./PALETTE.md).
+
 ![Palette (Dark)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/palette_Dark.png?raw=true)
 
 ![Palette (Light)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/palette_Light.png?raw=true)
 
-Tabulated values can be found [here](./PALETTE.md).
-
 # Installation
-## 1) Installing the Bundle
+## 1) Installing the Theme
 ### Manually
 - Download this repository and unzip its contents
-- Copy or move the contents into your `.vim/` directory (possibly `vimfiles` on Windows)
+- Copy or move the contents into your `.vim` directory (possibly `vimfiles` on Windows)
 
 ### [vim-plug](https://github.com/junegunn/vim-plug) (or similar plugin manager)
 - Add `Plug 'josuegaleas/jay'` to your `.vimrc` file
 - Restart Vim and use `:PlugInstall` to install
 
 ### [pathogen.vim](https://github.com/tpope/vim-pathogen)
-Clone this repository into your `.vim/bundle/` directory (possibly `vimfiles\bundle` on Windows) with:
+Clone this repository into your `.vim/bundle` directory (possibly `vimfiles\bundle` on Windows) with:
 ```bash
-git clone https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
+git clone --depth=1 https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
 ```
 
 ## 2) Updating `.vimrc`
@@ -72,7 +76,7 @@ Add the following line anywhere **before** `colorscheme jay` to your `.vimrc` fi
 let jay_transparent=1
 ```
 
-### Matching Statusline Theme
+### Matching Airline/Lightline Theme
 Airline *should* detect your configuration without further instruction.
 
 For Lightline, add the following line anywhere **after** `colorscheme jay` to your `.vimrc` file:
