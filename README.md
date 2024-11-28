@@ -3,16 +3,17 @@ Yet another Vim colorscheme on GitHub. Inspired by [Molokai](https://github.com/
 
 ## Features
 - Same color palette for both terminal and GUI Vim
-- Light and dark modes, with a transparent option
-- Matching themes for [Airline](https://github.com/vim-airline/vim-airline) and [Lightline](https://github.com/itchyny/lightline.vim)
-- Support for 256, 16, and 8 color terminals
-- Explicitly supported plugins: None so far!
-	- Want a certain plugin themed? Feel free to open an issue!
+- Light and dark modes
+- Transparent option
+- Support for 256 and 16 color terminals
+- Explicitly supported plugins:
+    - [vim-airline](https://github.com/vim-airline/vim-airline) (no 16-color support yet)
+    - [lightline.vim](https://github.com/itchyny/lightline.vim) (no 16-color support yet)
+    - [Vim Better Whitespace](https://github.com/ntpeters/vim-better-whitespace)
+    - Want a certain plugin supported? Feel free to open an issue!
 
 # Gallery
-Font used in screenshots is [Hack](https://github.com/source-foundry/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot).
-
-For more examples in different languages, visit 'jay' on [colorswat.ch](http://colorswat.ch/vim/schemes/jay).
+Font used in screenshots is [Hack](https://github.com/source-foundry/Hack). Additional syntax highlighting done by [vim-polyglot](https://github.com/sheerun/vim-polyglot). Statusline is a handmade one that can be found in [jvim](https://github.com/josuegaleas/jvim). For more examples in different languages, visit 'jay' on [colorswat.ch](https://colorswat.ch/vim/schemes/jay).
 
 ## Dark Mode
 ![Dark Mode](https://raw.githubusercontent.com/josuegaleas/jay-images/master/sample_Dark.png?raw=true)
@@ -25,7 +26,7 @@ For more examples in different languages, visit 'jay' on [colorswat.ch](http://c
 
 ![Airline (Light)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/statusline_Airline_Light.png?raw=true)
 
-## Lightline Theme
+## Lightline Colorscheme
 ![Lightline (Dark)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/statusline_Lightline_Dark.png?raw=true)
 
 ![Lightline (Light)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/statusline_Lightline_Light.png?raw=true)
@@ -38,24 +39,30 @@ Tabulated values can be found [here](./PALETTE.md).
 ![Palette (Light)](https://raw.githubusercontent.com/josuegaleas/jay-images/master/palette_Light.png?raw=true)
 
 # Installation
-## 1) Installing the Theme
+## 1) Installing the Colorscheme
 ### Manually
 - Download this repository and unzip its contents
-- Copy or move the contents into your `.vim` directory (possibly `vimfiles` on Windows)
+- Copy or move the contents into your `.vim` directory
 
 ### [vim-plug](https://github.com/junegunn/vim-plug) (or similar plugin manager)
-- Add `Plug 'josuegaleas/jay'` to your `.vimrc` file
+- Add `Plug 'josuegaleas/jay'` to your `.vimrc`
 - Restart Vim and use `:PlugInstall` to install
 
+### Vim's Built-In Package Manager (see `:help packages`)
+Clone this repository into your `.vim/pack` directory with:
+```bash
+git clone --depth=1 https://github.com/josuegaleas/jay.git ~/.vim/pack/josuegaleas/start/jay
+```
+
 ### [pathogen.vim](https://github.com/tpope/vim-pathogen)
-Clone this repository into your `.vim/bundle` directory (possibly `vimfiles\bundle` on Windows) with:
+Clone this repository into your `.vim/bundle` directory with:
 ```bash
 git clone --depth=1 https://github.com/josuegaleas/jay.git ~/.vim/bundle/jay/
 ```
 
 ## 2) Updating `.vimrc`
 ### Dark Mode
-Add the following lines to your `.vimrc` file:
+Add the following lines to your `.vimrc`:
 ```viml
 syntax enable
 set background=dark
@@ -63,7 +70,7 @@ colorscheme jay
 ```
 
 ### Light Mode
-Add the following lines to your `.vimrc` file:
+Add the following lines to your `.vimrc`:
 ```viml
 syntax enable
 set background=light
@@ -71,39 +78,46 @@ colorscheme jay
 ```
 
 ### Transparent Option
-Add the following line anywhere **before** `colorscheme jay` to your `.vimrc` file:
+Add the following line anywhere **before** `colorscheme jay` to your `.vimrc`:
 ```viml
-let jay_transparent=1
+let jay_transparent = 1
 ```
 
-### Matching Airline/Lightline Theme
-Airline *should* detect your configuration without further instruction.
+### Matching Airline Theme
+Airline *should* automatically set the matching theme. Optionally, you can enable powerline symbols with:
+```viml
+let g:airline_powerline_fonts = 1
+```
 
-For Lightline, add the following line anywhere **after** `colorscheme jay` to your `.vimrc` file:
+### Matching Lightline Colorscheme
+Add the following line to your `.vimrc`:
 ```viml
 let g:lightline = {'colorscheme': 'jay'}
 ```
-Lightline *should* detect your configuration after the above line is added.
 
-# TODO
-- [ ] Find a better solution to issue [#4](https://github.com/josuegaleas/jay/issues/4)
-- [ ] Add explicit support for various plugins
-- [ ] Add support for environments that use italics
+# Roadmap
+- Add 16-color support to the Airline theme and the Lightline colorscheme
+- Add explicit support for more plugins
+- Maybe rewrite the colorscheme using [vim-colortemplate](https://github.com/lifepillar/vim-colortemplate)
+- Add support for Neovim exclusive stuff
 
 # References
 - [gruvbox](https://github.com/morhetz/gruvbox)
 - [Solarized](https://github.com/altercation/vim-colors-solarized)
-- [Vimcasts, Episode 25](http://vimcasts.org/episodes/creating-colorschemes-for-vim/)
+- [Creating colorschemes for Vim](https://web.archive.org/web/20240416003858/http://vimcasts.org/episodes/creating-colorschemes-for-vim/)
+- [Consistent terminal colors with 16-ANSI-color Vim themes](https://jeffkreeftmeijer.com/vim-16-color/)
+- [Vim's colorscheme incubator](https://github.com/vim/colorschemes)
+- [Everforest](https://github.com/sainnhe/everforest)
+- [abbott.vim](https://github.com/bcat/abbott.vim)
+- `$VIMRUNTIME/syntax/syncolor.vim`
 
 # Tools
 - [Xterm Color Table](https://github.com/guns/xterm-color-table.vim)
 - [Colorizer](https://github.com/chrisbra/Colorizer)
 - [HiLinkTrace](https://github.com/gerw/vim-HiLinkTrace)
-- `:help highlight-groups`
-- `:help group-name`
 - `:highlight`
 - `:source $VIMRUNTIME/syntax/hitest.vim`
 
 # Credit
 - [FliiFe](https://github.com/FliiFe) for motivating me to make the transparent option.
-- [ksergey](https://github.com/ksergey) for motivating me to improve the tabline of the Airline and Lightline themes.
+- [ksergey](https://github.com/ksergey) for motivating me to improve the tabline of the Airline theme and the Lightline colorscheme.
